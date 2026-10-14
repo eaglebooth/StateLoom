@@ -1,0 +1,9 @@
+.next/
+node_modules/
+.env.local
+.vercel/
+*.tsbuildinfo
+artifacts/*.json
+!artifacts/.gitkeep
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,2 @@
+
+Schema written to docs/schema.json

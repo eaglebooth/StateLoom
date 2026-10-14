@@ -1,0 +1,48 @@
+{
+  "scope": "LOCAL pure-function tests and GenVM SDK lint/schema; not live consensus",
+  "checked_at": "2026-10-14T02:36:49.466388+00:00",
+  "source_sha256": "f3dbb9c1dbe04545caf1d9e320234890cd3dd2d61668787daf8001a9c68dffa2",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\admin\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=docs/local-evidence/pytest.xml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\admin\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "genvm_linter.cli",
+        "check",
+        "contracts/state_loom.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\admin\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "genvm_linter.cli",
+        "schema",
+        "contracts/state_loom.py",
+        "-o",
+        "docs/schema.json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "live_address": null,
+  "live_transactions": []
+}

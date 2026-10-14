@@ -1,0 +1,1483 @@
+{
+  "contract": "0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd",
+  "network": "GenLayer StudioNet 61999",
+  "run": "942217300",
+  "actors": {
+    "owner": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+    "guardian": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+    "deployerRole": "none"
+  },
+  "fixtures": {
+    "safeOld": "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+    "safeNew": "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+    "structural": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+    "semanticOld": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+    "semanticNew": "0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7",
+    "unavailable": "0x000000000000000000000000000000000000dEaD"
+  },
+  "sources": {
+    "safeOld": {
+      "address": "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x5508c89BE3Fe14Fa6d1770aa5690681E99185346?fields=all",
+      "bytes": 16787,
+      "sha256": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c"
+    },
+    "safeNew": {
+      "address": "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x0B3D92b913630649aD98EBC1A011E40f77d9B653?fields=all",
+      "bytes": 19152,
+      "sha256": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+    },
+    "structural": {
+      "address": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x946406805023F1B268F3Cc9190EB9Ff91A566973?fields=all",
+      "bytes": 31325,
+      "sha256": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32"
+    },
+    "semanticNew": {
+      "address": "0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7?fields=all",
+      "bytes": 33494,
+      "sha256": "b08f33f58ff2c4dd5f2856c458a5f1dcb65bc48e70933c9f52e6b0adf160f623"
+    }
+  },
+  "transactions": [
+    {
+      "label": "A creates happy lineage",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "create_lineage",
+      "args": [
+        "live-942217300",
+        "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+        11155111
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xec7a12cb412c39fb3191fcd02404d5c977f0395a7f4a9aa0489c827a8fc3a4cf",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "local_id": "live-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        }
+      }
+    },
+    {
+      "label": "A proposes verified baseline",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "propose_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x788983aabf64df3259d244d24353b3783e5575aade82963ee782c710f503fdd6",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "local_id": "live-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "eddf0b5a53b3e45d18b22add25360ee51ff62568e920543760bfa78c453bdf42",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "local_id": "live-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        }
+      }
+    },
+    {
+      "label": "B accepts exact baseline consent",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "accept_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "eddf0b5a53b3e45d18b22add25360ee51ff62568e920543760bfa78c453bdf42"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x1b5a5064ebc955bfbe48b31c9cd68ce18b8feae45ab7e309f9ea703c712b0f5b",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "eddf0b5a53b3e45d18b22add25360ee51ff62568e920543760bfa78c453bdf42",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "local_id": "live-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "eddf0b5a53b3e45d18b22add25360ee51ff62568e920543760bfa78c453bdf42",
+          "epoch": 1,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "local_id": "live-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "ACTIVE"
+        }
+      }
+    },
+    {
+      "label": "A opens parallel study that will become stale",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x141cfd51834c40adecad658a99e238a3d4b8270fae13ab995a85936e834a12cc",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B opens safe-compatible study",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x444757f720659f64f2c4aa7b27cb19001974bc6f12166fe3dbb20fae782e50da",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 1",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xd540068e27ee81b0d256dff36b36650e5eb4e9e996da811d2a0cef11576cf2b2",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "B cannot consume owner capability",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "activate_candidate",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+        1
+      ],
+      "expected": "ERROR",
+      "hash": "0xcd859d14d665f10feb3a794725a853cd5d190bc657dcf11a9218a63ea46ec133",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "wrong capability digest rejected",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "activate_candidate",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        1
+      ],
+      "expected": "ERROR",
+      "hash": "0x2877bee1dc3a6bb301ed5aad69c7ce591f2e719075684ad10490e736cc7ac481",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "A activates exact capability",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "activate_candidate",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x2bee51b88ef37f8162cdb3f985b6eccc70f0868ceb97c65413d5916def6f56ce",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": true,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "CONSUMED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "activation replay rejected",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "activate_candidate",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+        1
+      ],
+      "expected": "ERROR",
+      "hash": "0x3e039a653e3b28a188a980da7fff07e9d14740287504f02ccc20bdc254193458",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": true,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "CONSUMED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": true,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "CONSUMED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "stale parallel study rejected",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x946406805023f1b268f3cc9190eb9ff91a566973",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32"
+      ],
+      "expected": "ERROR",
+      "hash": "0x3d66c281c341ac18cbe205a20c5e0e2dfcbf980a7e96e8e0f32301d0139510eb",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "readback": {
+        "before": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B opens structural conflict",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+        2
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x86db5b76a39fec3847b3acff4ff66e2683059b0d28f4b2f5520e79bda6960c40",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 2,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses structural conflict",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x946406805023f1b268f3cc9190eb9ff91a566973",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+        "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x4dd81e130edbaa9e89c04f25ee614a56e24e5aeffc4959605308206c50f6e14b",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 2,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 2,
+          "findings": "[{\"new_label\":\"singleton\",\"new_type\":\"address\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"STRUCTURAL_CONFLICT\",\"slot\":0},{\"new_label\":\"\",\"new_type\":\"\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"MISSING_OCCUPIED_SLOT\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "ed3d0bd4248bf937c76989a15f270e282f9ef5844501e9e5be4c0f7d82eeafba",
+          "new_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+          "old_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "risk_codes": "occupied storage changed",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "STRUCTURAL_CONFLICT"
+        }
+      }
+    },
+    {
+      "label": "A opens unavailable source",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "0x000000000000000000000000000000000000dEaD",
+        2
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xffa779584b7b165e541a6d1f623a28bdec6e60da72e1d897b642668c7932838c",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x000000000000000000000000000000000000dead",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 2,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x000000000000000000000000000000000000dead",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses unavailable source",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x000000000000000000000000000000000000dead",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xeb5de1872c2f8f95abbd9beda277dbb3e82286607e4176f8b5c5d2e4fbf05d34",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x000000000000000000000000000000000000dead",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 2,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x000000000000000000000000000000000000dead",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x000000000000000000000000000000000000dead",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 2,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "aab61105b6915a2f9632a5b8697925db0d516356098e95bcc5a38154324fa93e",
+          "new_record_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "old_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "risk_codes": "source or semantic evidence unavailable",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x000000000000000000000000000000000000dead",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "A creates semantic-control lineage",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "create_lineage",
+      "args": [
+        "semantic-942217300",
+        "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+        11155111
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x18dd51ea546167bab793cbf9ceae2c6eb72063708d446834ef72e53ad8b0ef38",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+          "local_id": "semantic-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        }
+      }
+    },
+    {
+      "label": "A proposes semantic baseline",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "propose_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+        "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+        "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xdb6d9693a4cc2d44109cddbf49b453cc1f2729b0f5d1d8d4c9b0834496c881bb",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+          "local_id": "semantic-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "active_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+          "chain_id": 11155111,
+          "consent_digest": "ee3101878c88e483c04a832cdbafed7458cf4387fb13c7829c6dc135bc334644",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+          "local_id": "semantic-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        }
+      }
+    },
+    {
+      "label": "B accepts semantic baseline",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "accept_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+        "ee3101878c88e483c04a832cdbafed7458cf4387fb13c7829c6dc135bc334644"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xf96081df0dc5a6146c8750b8d47ea7f39661fbde3a1ba66611bcdf9cbe7b0ea5",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "active_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+          "chain_id": 11155111,
+          "consent_digest": "ee3101878c88e483c04a832cdbafed7458cf4387fb13c7829c6dc135bc334644",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+          "local_id": "semantic-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "active_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+          "chain_id": 11155111,
+          "consent_digest": "ee3101878c88e483c04a832cdbafed7458cf4387fb13c7829c6dc135bc334644",
+          "epoch": 1,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+          "local_id": "semantic-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "ACTIVE"
+        }
+      }
+    },
+    {
+      "label": "B opens semantic repurpose",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+        "0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x4b2565d161eefa06e9aba280da44385f4b260d298c6e979c071832b809d4205e",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300:1:0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses semantic repurpose",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300:1:0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+        "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+        "b08f33f58ff2c4dd5f2856c458a5f1dcb65bc48e70933c9f52e6b0adf160f623"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x380354e5b68bae82ffb4c84e4bef4c613778f72fae8c6a535bff57fb4d123fd2",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300:1:0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"old_label 'singleton' and new_label 'entrant' are different and generic; both types are address, but supplied fields do not establish the same persistent business meaning.\",\"new_label\":\"entrant\",\"new_type\":\"address\",\"offset\":0,\"old_label\":\"singleton\",\"old_type\":\"address\",\"relation\":\"INSUFFICIENT_CONTEXT\",\"slot\":0}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+          "matrix_digest": "8b292c43ff94b06e520c5db37d05a276de3a821b6c4bc9ffb3dcf2401f4ddb4f",
+          "new_record_digest": "b08f33f58ff2c4dd5f2856c458a5f1dcb65bc48e70933c9f52e6b0adf160f623",
+          "old_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+          "risk_codes": "occupied state meaning not preserved",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300:1:0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+          "verdict": "SEMANTIC_RISK"
+        }
+      }
+    },
+    {
+      "label": "A creates role-control lineage",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "create_lineage",
+      "args": [
+        "guard-942217300",
+        "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+        11155111
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xdf7967975f1053d53535fe928b514497cc12f7bff202e4d11186756abe709d23",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:guard-942217300",
+          "local_id": "guard-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        }
+      }
+    },
+    {
+      "label": "B cannot propose owner baseline",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "propose_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:guard-942217300",
+        "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c"
+      ],
+      "expected": "ERROR",
+      "hash": "0x24df9bdc17ca3c5558021fc751855aeca784e18bfbfa379013a6660431ed9f6e",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:guard-942217300",
+          "local_id": "guard-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:guard-942217300",
+          "local_id": "guard-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "label": "deployed identity",
+      "pass": true,
+      "details": {
+        "version": "stateloom/1.2.0"
+      }
+    },
+    {
+      "label": "A creates happy lineage finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xec7a12cb412c39fb3191fcd02404d5c977f0395a7f4a9aa0489c827a8fc3a4cf",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "A proposes verified baseline finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x788983aabf64df3259d244d24353b3783e5575aade82963ee782c710f503fdd6",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B accepts exact baseline consent finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x1b5a5064ebc955bfbe48b31c9cd68ce18b8feae45ab7e309f9ea703c712b0f5b",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "A opens parallel study that will become stale finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x141cfd51834c40adecad658a99e238a3d4b8270fae13ab995a85936e834a12cc",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B opens safe-compatible study finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x444757f720659f64f2c4aa7b27cb19001974bc6f12166fe3dbb20fae782e50da",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 1 finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xd540068e27ee81b0d256dff36b36650e5eb4e9e996da811d2a0cef11576cf2b2",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "safe pair creates capability",
+      "pass": true,
+      "details": {
+        "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+        "consumed": false,
+        "expected_epoch": 1,
+        "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+        "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+        "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+        "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "risk_codes": "",
+        "status": "ASSESSED",
+        "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "verdict": "SAFE_APPEND"
+      }
+    },
+    {
+      "label": "B cannot consume owner capability finalized ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xcd859d14d665f10feb3a794725a853cd5d190bc657dcf11a9218a63ea46ec133",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "B cannot consume owner capability exact pre/post equality",
+      "pass": true,
+      "details": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "wrong capability digest rejected finalized ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x2877bee1dc3a6bb301ed5aad69c7ce591f2e719075684ad10490e736cc7ac481",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "wrong capability digest rejected exact pre/post equality",
+      "pass": true,
+      "details": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "A activates exact capability finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x2bee51b88ef37f8162cdb3f985b6eccc70f0868ceb97c65413d5916def6f56ce",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "activation advances exact address and epoch",
+      "pass": true,
+      "details": {
+        "activated_count": 1,
+        "active_implementation": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "active_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+        "chain_id": 11155111,
+        "consent_digest": "eddf0b5a53b3e45d18b22add25360ee51ff62568e920543760bfa78c453bdf42",
+        "epoch": 2,
+        "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+        "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "local_id": "live-942217300",
+        "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+        "status": "ACTIVE"
+      }
+    },
+    {
+      "label": "activation replay rejected finalized ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x3e039a653e3b28a188a980da7fff07e9d14740287504f02ccc20bdc254193458",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "activation replay rejected exact pre/post equality",
+      "pass": true,
+      "details": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": true,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "CONSUMED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+          "consumed": true,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "CONSUMED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "stale parallel study rejected finalized ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x3d66c281c341ac18cbe205a20c5e0e2dfcbf980a7e96e8e0f32301d0139510eb",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "stale parallel study rejected exact pre/post equality",
+      "pass": true,
+      "details": {
+        "before": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B opens structural conflict finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x86db5b76a39fec3847b3acff4ff66e2683059b0d28f4b2f5520e79bda6960c40",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B assesses structural conflict finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x4dd81e130edbaa9e89c04f25ee614a56e24e5aeffc4959605308206c50f6e14b",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "structural conflict blocks capability",
+      "pass": true,
+      "details": {
+        "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+        "capability_digest": "",
+        "consumed": false,
+        "expected_epoch": 2,
+        "findings": "[{\"new_label\":\"singleton\",\"new_type\":\"address\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"STRUCTURAL_CONFLICT\",\"slot\":0},{\"new_label\":\"\",\"new_type\":\"\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"MISSING_OCCUPIED_SLOT\",\"slot\":1}]",
+        "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "matrix_digest": "ed3d0bd4248bf937c76989a15f270e282f9ef5844501e9e5be4c0f7d82eeafba",
+        "new_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+        "old_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+        "risk_codes": "occupied storage changed",
+        "status": "ASSESSED",
+        "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x946406805023f1b268f3cc9190eb9ff91a566973",
+        "verdict": "STRUCTURAL_CONFLICT"
+      }
+    },
+    {
+      "label": "A opens unavailable source finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xffa779584b7b165e541a6d1f623a28bdec6e60da72e1d897b642668c7932838c",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B assesses unavailable source finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xeb5de1872c2f8f95abbd9beda277dbb3e82286607e4176f8b5c5d2e4fbf05d34",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "unavailable source fails closed",
+      "pass": true,
+      "details": {
+        "candidate": "0x000000000000000000000000000000000000dead",
+        "capability_digest": "",
+        "consumed": false,
+        "expected_epoch": 2,
+        "findings": "[]",
+        "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+        "matrix_digest": "aab61105b6915a2f9632a5b8697925db0d516356098e95bcc5a38154324fa93e",
+        "new_record_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "old_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+        "risk_codes": "source or semantic evidence unavailable",
+        "status": "ASSESSED",
+        "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x000000000000000000000000000000000000dead",
+        "verdict": "UNRESOLVED"
+      }
+    },
+    {
+      "label": "A creates semantic-control lineage finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x18dd51ea546167bab793cbf9ceae2c6eb72063708d446834ef72e53ad8b0ef38",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "A proposes semantic baseline finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xdb6d9693a4cc2d44109cddbf49b453cc1f2729b0f5d1d8d4c9b0834496c881bb",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B accepts semantic baseline finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xf96081df0dc5a6146c8750b8d47ea7f39661fbde3a1ba66611bcdf9cbe7b0ea5",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B opens semantic repurpose finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x4b2565d161eefa06e9aba280da44385f4b260d298c6e979c071832b809d4205e",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B assesses semantic repurpose finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x380354e5b68bae82ffb4c84e4bef4c613778f72fae8c6a535bff57fb4d123fd2",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "semantic repurpose blocks capability",
+      "pass": true,
+      "details": {
+        "candidate": "0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+        "capability_digest": "",
+        "consumed": false,
+        "expected_epoch": 1,
+        "findings": "[{\"evidence\":\"old_label 'singleton' and new_label 'entrant' are different and generic; both types are address, but supplied fields do not establish the same persistent business meaning.\",\"new_label\":\"entrant\",\"new_type\":\"address\",\"offset\":0,\"old_label\":\"singleton\",\"old_type\":\"address\",\"relation\":\"INSUFFICIENT_CONTEXT\",\"slot\":0}]",
+        "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+        "matrix_digest": "8b292c43ff94b06e520c5db37d05a276de3a821b6c4bc9ffb3dcf2401f4ddb4f",
+        "new_record_digest": "b08f33f58ff2c4dd5f2856c458a5f1dcb65bc48e70933c9f52e6b0adf160f623",
+        "old_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+        "risk_codes": "occupied state meaning not preserved",
+        "status": "ASSESSED",
+        "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300:1:0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+        "verdict": "SEMANTIC_RISK"
+      }
+    },
+    {
+      "label": "A creates role-control lineage finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xdf7967975f1053d53535fe928b514497cc12f7bff202e4d11186756abe709d23",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B cannot propose owner baseline finalized ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0x24df9bdc17ca3c5558021fc751855aeca784e18bfbfa379013a6660431ed9f6e",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "B cannot propose owner baseline exact pre/post equality",
+      "pass": true,
+      "details": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:guard-942217300",
+          "local_id": "guard-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:guard-942217300",
+          "local_id": "guard-942217300",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        }
+      }
+    }
+  ],
+  "final": {
+    "version": "stateloom/1.2.0",
+    "happy": {
+      "activated_count": 1,
+      "active_implementation": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+      "active_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+      "chain_id": 11155111,
+      "consent_digest": "eddf0b5a53b3e45d18b22add25360ee51ff62568e920543760bfa78c453bdf42",
+      "epoch": 2,
+      "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+      "local_id": "live-942217300",
+      "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "status": "ACTIVE"
+    },
+    "safe": {
+      "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+      "capability_digest": "7b0f2fe4929d69c0060136a4248a9d008edb44759f829949d3721630bcda6860",
+      "consumed": true,
+      "expected_epoch": 1,
+      "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+      "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+      "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+      "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+      "risk_codes": "",
+      "status": "CONSUMED",
+      "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+      "verdict": "SAFE_APPEND"
+    },
+    "structural": {
+      "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+      "capability_digest": "",
+      "consumed": false,
+      "expected_epoch": 2,
+      "findings": "[{\"new_label\":\"singleton\",\"new_type\":\"address\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"STRUCTURAL_CONFLICT\",\"slot\":0},{\"new_label\":\"\",\"new_type\":\"\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"MISSING_OCCUPIED_SLOT\",\"slot\":1}]",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+      "matrix_digest": "ed3d0bd4248bf937c76989a15f270e282f9ef5844501e9e5be4c0f7d82eeafba",
+      "new_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+      "old_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+      "risk_codes": "occupied storage changed",
+      "status": "ASSESSED",
+      "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x946406805023f1b268f3cc9190eb9ff91a566973",
+      "verdict": "STRUCTURAL_CONFLICT"
+    },
+    "unavailable": {
+      "candidate": "0x000000000000000000000000000000000000dead",
+      "capability_digest": "",
+      "consumed": false,
+      "expected_epoch": 2,
+      "findings": "[]",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300",
+      "matrix_digest": "aab61105b6915a2f9632a5b8697925db0d516356098e95bcc5a38154324fa93e",
+      "new_record_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "old_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+      "risk_codes": "source or semantic evidence unavailable",
+      "status": "ASSESSED",
+      "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217300:2:0x000000000000000000000000000000000000dead",
+      "verdict": "UNRESOLVED"
+    },
+    "semantic": {
+      "candidate": "0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+      "capability_digest": "",
+      "consumed": false,
+      "expected_epoch": 1,
+      "findings": "[{\"evidence\":\"old_label 'singleton' and new_label 'entrant' are different and generic; both types are address, but supplied fields do not establish the same persistent business meaning.\",\"new_label\":\"entrant\",\"new_type\":\"address\",\"offset\":0,\"old_label\":\"singleton\",\"old_type\":\"address\",\"relation\":\"INSUFFICIENT_CONTEXT\",\"slot\":0}]",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300",
+      "matrix_digest": "8b292c43ff94b06e520c5db37d05a276de3a821b6c4bc9ffb3dcf2401f4ddb4f",
+      "new_record_digest": "b08f33f58ff2c4dd5f2856c458a5f1dcb65bc48e70933c9f52e6b0adf160f623",
+      "old_record_digest": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32",
+      "risk_codes": "occupied state meaning not preserved",
+      "status": "ASSESSED",
+      "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:semantic-942217300:1:0x87c776691b87f6df9fb07be9e3ecaf176319f7b7",
+      "verdict": "SEMANTIC_RISK"
+    },
+    "roleControl": {
+      "activated_count": 0,
+      "active_implementation": "",
+      "active_record_digest": "",
+      "chain_id": 11155111,
+      "consent_digest": "",
+      "epoch": 0,
+      "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:guard-942217300",
+      "local_id": "guard-942217300",
+      "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "status": "DRAFT"
+    }
+  }
+}

@@ -1,0 +1,629 @@
+{
+  "contract": "0x10928c59f8f693F685aB936440ce54c8167E048D",
+  "network": "GenLayer StudioNet 61999",
+  "run": "942217200",
+  "actors": {
+    "owner": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+    "guardian": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+    "deployerRole": "none"
+  },
+  "fixtures": {
+    "safeOld": "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+    "safeNew": "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+    "structural": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+    "semanticOld": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+    "semanticNew": "0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7",
+    "unavailable": "0x000000000000000000000000000000000000dEaD"
+  },
+  "sources": {
+    "safeOld": {
+      "address": "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x5508c89BE3Fe14Fa6d1770aa5690681E99185346?fields=all",
+      "bytes": 16787,
+      "sha256": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c"
+    },
+    "safeNew": {
+      "address": "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x0B3D92b913630649aD98EBC1A011E40f77d9B653?fields=all",
+      "bytes": 19152,
+      "sha256": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+    },
+    "structural": {
+      "address": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x946406805023F1B268F3Cc9190EB9Ff91A566973?fields=all",
+      "bytes": 31325,
+      "sha256": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32"
+    },
+    "semanticNew": {
+      "address": "0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7?fields=all",
+      "bytes": 33494,
+      "sha256": "b08f33f58ff2c4dd5f2856c458a5f1dcb65bc48e70933c9f52e6b0adf160f623"
+    }
+  },
+  "transactions": [
+    {
+      "label": "A creates happy lineage",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "create_lineage",
+      "args": [
+        "live-942217200",
+        "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+        11155111
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xb628d99dbf857c18badb8584204383929ffb246cb9c6aff4368cfe8385b263cb",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "local_id": "live-942217200",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        }
+      }
+    },
+    {
+      "label": "A proposes verified baseline",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "propose_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+        "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xeaaeb01955d67f69458cc6bb4f7fa462cafbc1bd938e59dd0b7ac54dbbed1985",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "local_id": "live-942217200",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "9eb8a206493ee7b6fbcb1f9d650cb918a1c94593122ab0d11d583b999e04dcb1",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "local_id": "live-942217200",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        }
+      }
+    },
+    {
+      "label": "B accepts exact baseline consent",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "accept_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+        "9eb8a206493ee7b6fbcb1f9d650cb918a1c94593122ab0d11d583b999e04dcb1"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x402f14a8565febec9a8d4e36b1a78c2715f04865bef24b4f6fd31bc7945cf27b",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "9eb8a206493ee7b6fbcb1f9d650cb918a1c94593122ab0d11d583b999e04dcb1",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "local_id": "live-942217200",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "9eb8a206493ee7b6fbcb1f9d650cb918a1c94593122ab0d11d583b999e04dcb1",
+          "epoch": 1,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "local_id": "live-942217200",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "ACTIVE"
+        }
+      }
+    },
+    {
+      "label": "A opens parallel study that will become stale",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+        "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xc2bf816f7af2a432f0c5b70a70b5aec942908d50a255774d43dbae542ff32b40",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x946406805023f1b268f3cc9190eb9ff91a566973",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B opens safe-compatible study",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+        "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xb1b2d6a188149cf3887e46f965b8c8d447199e5c48c3d18023b7217097d8a2c1",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 1",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xc3e97e65dc3b88aac7f22188018168e4e76dedab01a33f032bdeebdaa3405d34",
+      "status": "UNDETERMINED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 2",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xf317d66069c578d89aafbc2a3811b53f0cd7ae9df8164804152a17198c430fac",
+      "status": "UNDETERMINED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 3",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x6fb4f737a7f62fc8c31b05d7923fd04844cc5303045d42c6b9006b10c7dc7f7d",
+      "status": "UNDETERMINED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 4",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x03df0f7cb02e2002eb8b5571ebbd396ffc49fb395d4936863626285be5f9d89f",
+      "status": "UNDETERMINED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "label": "deployed identity",
+      "pass": true,
+      "details": {
+        "version": "stateloom/1.1.0"
+      }
+    },
+    {
+      "label": "A creates happy lineage finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xb628d99dbf857c18badb8584204383929ffb246cb9c6aff4368cfe8385b263cb",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "A proposes verified baseline finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xeaaeb01955d67f69458cc6bb4f7fa462cafbc1bd938e59dd0b7ac54dbbed1985",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B accepts exact baseline consent finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x402f14a8565febec9a8d4e36b1a78c2715f04865bef24b4f6fd31bc7945cf27b",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "A opens parallel study that will become stale finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xc2bf816f7af2a432f0c5b70a70b5aec942908d50a255774d43dbae542ff32b40",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B opens safe-compatible study finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xb1b2d6a188149cf3887e46f965b8c8d447199e5c48c3d18023b7217097d8a2c1",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 1 undetermined preserves exact state",
+      "pass": true,
+      "details": {
+        "hash": "0xc3e97e65dc3b88aac7f22188018168e4e76dedab01a33f032bdeebdaa3405d34",
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 2 undetermined preserves exact state",
+      "pass": true,
+      "details": {
+        "hash": "0xf317d66069c578d89aafbc2a3811b53f0cd7ae9df8164804152a17198c430fac",
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 3 undetermined preserves exact state",
+      "pass": true,
+      "details": {
+        "hash": "0x6fb4f737a7f62fc8c31b05d7923fd04844cc5303045d42c6b9006b10c7dc7f7d",
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "B assesses safe-compatible study attempt 4 undetermined preserves exact state",
+      "pass": true,
+      "details": {
+        "hash": "0x03df0f7cb02e2002eb8b5571ebbd396ffc49fb395d4936863626285be5f9d89f",
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "safe pair creates capability",
+      "pass": false,
+      "details": {
+        "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "capability_digest": "",
+        "consumed": false,
+        "expected_epoch": 1,
+        "findings": "[]",
+        "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200",
+        "matrix_digest": "",
+        "new_record_digest": "",
+        "old_record_digest": "",
+        "risk_codes": "",
+        "status": "OPEN",
+        "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-942217200:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "verdict": "UNRESOLVED"
+      }
+    }
+  ],
+  "final": {}
+}

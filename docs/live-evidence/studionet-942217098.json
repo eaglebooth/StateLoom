@@ -1,0 +1,55 @@
+{
+  "contract": "0xCf8A601f3322c82594011ACA23185FD7F59ccB68",
+  "network": "GenLayer StudioNet 61999",
+  "run": "942217098",
+  "actors": {
+    "owner": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+    "guardian": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+    "deployerRole": "none"
+  },
+  "fixtures": {
+    "safeOld": "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+    "safeNew": "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+    "structural": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+    "semanticOld": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+    "semanticNew": "0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7",
+    "unavailable": "0x000000000000000000000000000000000000dEaD"
+  },
+  "sources": {
+    "safeOld": {
+      "address": "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x5508c89BE3Fe14Fa6d1770aa5690681E99185346?fields=all",
+      "bytes": 16787,
+      "sha256": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c"
+    },
+    "safeNew": {
+      "address": "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x0B3D92b913630649aD98EBC1A011E40f77d9B653?fields=all",
+      "bytes": 19152,
+      "sha256": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+    },
+    "structural": {
+      "address": "0x946406805023F1B268F3Cc9190EB9Ff91A566973",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x946406805023F1B268F3Cc9190EB9Ff91A566973?fields=all",
+      "bytes": 31325,
+      "sha256": "3a28c0268ae13f9642cbc16f109b64c00f353c5be25a72dd936dc5cf99746e32"
+    },
+    "semanticNew": {
+      "address": "0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7",
+      "url": "https://sourcify.dev/server/v2/contract/11155111/0x87c776691b87F6Df9fb07be9e3ECaF176319f7b7?fields=all",
+      "bytes": 33494,
+      "sha256": "b08f33f58ff2c4dd5f2856c458a5f1dcb65bc48e70933c9f52e6b0adf160f623"
+    }
+  },
+  "transactions": [],
+  "assertions": [
+    {
+      "label": "deployed identity",
+      "pass": true,
+      "details": {
+        "version": "stateloom/1.0.0"
+      }
+    }
+  ],
+  "final": {}
+}

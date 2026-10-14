@@ -1,0 +1,22 @@
+{
+  "network": "GenLayer StudioNet 61999",
+  "address": "0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd",
+  "versionReadback": "stateloom/1.2.0",
+  "run": "942217300",
+  "transactions": 35,
+  "assertions": 52,
+  "evidence": [
+    "docs/live-evidence/studionet-942217300.json",
+    "docs/live-evidence/studionet-adversarial-942217400.json"
+  ],
+  "deploymentTransaction": "0xe2ebb61dc7b83ce00dbb549108607e896f2c321654db732c1ea376993218868f",
+  "sourceParity": {
+    "verified": true,
+    "evidence": "docs/SOURCE_PARITY.json",
+    "sha256": "f3dbb9c1dbe04545caf1d9e320234890cd3dd2d61668787daf8001a9c68dffa2"
+  },
+  "superseded": [
+    "0xCf8A601f3322c82594011ACA23185FD7F59ccB68",
+    "0x10928c59f8f693F685aB936440ce54c8167E048D"
+  ]
+}

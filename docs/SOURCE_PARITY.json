@@ -1,0 +1,9 @@
+{
+  "address": "0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd",
+  "checkedAt": "2026-10-14T03:48:45.577Z",
+  "remoteBytes": 22225,
+  "localBytes": 22225,
+  "remoteSha256": "f3dbb9c1dbe04545caf1d9e320234890cd3dd2d61668787daf8001a9c68dffa2",
+  "localSha256": "f3dbb9c1dbe04545caf1d9e320234890cd3dd2d61668787daf8001a9c68dffa2",
+  "byteForByteEqual": true
+}
