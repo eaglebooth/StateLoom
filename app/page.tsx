@@ -3,7 +3,7 @@ import Image from "next/image";
 import {useCallback,useEffect,useMemo,useState} from "react";
 import {ArrowUpRight,ChevronRight,Database,GitBranch,Link2,LockKeyhole,RefreshCw,ShieldCheck,Wallet} from "lucide-react";
 import {connect,current,readJson,transact,validAddress,watch} from "@/lib/chain";
-import {explorer} from "@/lib/network";
+import {explorer,stateLoomContract} from "@/lib/network";
 
 type Data=Record<string,unknown>;
 const short=(v:string)=>v?(v.length>18?`${v.slice(0,6)}…${v.slice(-4)}`:v):"not connected";
@@ -12,7 +12,7 @@ const asNumber=(v:unknown)=>Number(v??0);
 
 export default function Home(){
  const [account,setAccount]=useState("");
- const [contract,setContract]=useState(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS||"");
+ const [contract,setContract]=useState(stateLoomContract);
  const [lineageId,setLineageId]=useState("");
  const [studyId,setStudyId]=useState("");
  const [lineage,setLineage]=useState<Data|null>(null);
