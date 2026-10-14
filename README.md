@@ -1,5 +1,7 @@
 # StateLoom
 
+Live application: https://stateloom.vercel.app
+
 StateLoom is a GenLayer dApp for consensus-gated storage lineage. It compares the
 verified layouts of two deployed EVM implementations, blocks structural collisions,
 uses bounded validator-reviewed intelligence to detect semantic repurposing, and

@@ -29,7 +29,7 @@ The reviewer should see every success message only after `FINALIZED` execution a
 
 ## Links
 
-- Website: `<ADD_VERCEL_URL>`
+- Website: https://stateloom.vercel.app
 - GitHub: https://github.com/eaglebooth/StateLoom
 - Contract: https://explorer-studio.genlayer.com/address/0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd
 - Deployment transaction: https://explorer-studio.genlayer.com/tx/0xe2ebb61dc7b83ce00dbb549108607e896f2c321654db732c1ea376993218868f
