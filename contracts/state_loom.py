@@ -300,6 +300,9 @@ class StateLoom(gl.Contract):
     @gl.public.write
     def assess_study(self, study_id: str, expected_old_digest: str, expected_new_digest: str) -> str:
         study, lineage = self._study(study_id), self._lineage(self._study(study_id).lineage_id)
+        sender = str(gl.message.sender_address).lower()
+        if sender not in (lineage.owner, lineage.guardian):
+            raise gl.vm.UserError("PARTICIPANT_ONLY")
         if study.status != "OPEN" or int(study.expected_epoch) != int(lineage.epoch) or lineage.status != "ACTIVE":
             raise gl.vm.UserError("STUDY_NOT_ASSESSABLE")
         if expected_old_digest != lineage.active_record_digest or not is_digest(expected_new_digest):
@@ -412,4 +415,4 @@ class StateLoom(gl.Contract):
 
     @gl.public.view
     def version(self) -> str:
-        return "stateloom/1.2.0"
+        return "stateloom/1.2.1"

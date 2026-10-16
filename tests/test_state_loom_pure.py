@@ -3,6 +3,7 @@ import json
 import pathlib
 import sys
 import types
+import pytest
 
 class DummyContract: pass
 class DummyUserError(Exception): pass
@@ -81,3 +82,37 @@ def test_validator_accepts_bound_leader_findings_and_rejects_tampering():
     altered=[dict(row) for row in leader]
     altered[0]["old_label"]="attacker_supplied"
     assert mod.validate_bound_findings(altered,pending)==[]
+
+
+@pytest.mark.parametrize("participant", ["owner", "guardian"])
+def test_third_party_cannot_finalize_or_block_later_participant_assessment(monkeypatch, participant):
+    owner, guardian, outsider = ("0x" + c * 40 for c in ("a", "b", "c"))
+    candidate = "0x" + "d" * 40
+    contract = mod.StateLoom()
+    contract.lineages, contract.studies = {}, {}
+    message = types.SimpleNamespace(sender_address=owner)
+    monkeypatch.setattr(dummy_gl, "message", message, raising=False)
+    lineage_id = contract.create_lineage("authorization", guardian, 11155111)
+    old_digest, new_digest = "1" * 64, "2" * 64
+    contract.propose_baseline(lineage_id, A, old_digest)
+    message.sender_address = guardian
+    contract.accept_baseline(lineage_id, contract.lineages[lineage_id].consent_digest)
+    study_id = contract.open_study(lineage_id, candidate, 1)
+    before = (contract.get_lineage(lineage_id), contract.get_study(study_id))
+    calls = []
+    def consensus(leader, validator):
+        calls.append(True)
+        return mod.canonical({"old": {}, "new": {}, "structural": "STRUCTURALLY_SAFE",
+                              "findings": [{"slot": 0, "offset": 0, "relation": "PRESERVED_MEANING"}]})
+    monkeypatch.setattr(dummy_gl.vm, "run_nondet_unsafe", consensus, raising=False)
+    message.sender_address = outsider
+    with pytest.raises(DummyUserError, match="PARTICIPANT_ONLY"):
+        contract.assess_study(study_id, old_digest, "f" * 64)
+    assert calls == []
+    assert (contract.get_lineage(lineage_id), contract.get_study(study_id)) == before
+    message.sender_address = owner if participant == "owner" else guardian
+    assert contract.assess_study(study_id, old_digest, new_digest) == "SAFE_APPEND"
+    assert len(calls) == 1
+    result = json.loads(contract.get_study(study_id))
+    assert result["status"] == "ASSESSED" and result["capability_digest"]
+    assert result["new_record_digest"] == new_digest

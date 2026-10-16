@@ -1,13 +1,18 @@
 # Live StudioNet Evidence
 
-Contract: [0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd](https://explorer-studio.genlayer.com/address/0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd)
-Version: stateloom/1.2.0. Run: 942217300.
-Deployment: [0xe2ebb61dc7b83ce00dbb549108607e896f2c321654db732c1ea376993218868f](https://explorer-studio.genlayer.com/tx/0xe2ebb61dc7b83ce00dbb549108607e896f2c321654db732c1ea376993218868f) — `FINALIZED`, constructor `SUCCESS`, consensus `Accepted`.
-35 finalized transactions across two signed SDK runs; 52 assertions passed and zero
-failed. The primary lifecycle contains 22 transactions / 33 assertions. The focused
-adversarial supplement contains 13 transactions / 19 assertions.
+Contract: [0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9](https://explorer-studio.genlayer.com/address/0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9)
+Version: stateloom/1.2.1. Run: 20261016-primary.
+37 submitted transactions; 37 finalized; 0 undetermined; 58 distinct assertions passed (66 executions, including resume rechecks).
 
 Owner: 0xeb57bc7125fa60d7482CE12058397369AB3581f8. Guardian: 0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f. Deployer has no test role.
+Outsider (ephemeral zero-value signer): 0xc635eAffDC85262f1CEc49C02301f5CCaba75F1e.
+
+## Steward authorization regression
+
+- Outsider assessment with an incorrect candidate digest is rejected and preserves both study and lineage.
+- Outsider assessment with correct digests is also rejected; the same study remains OPEN.
+- The guardian then assesses that exact study successfully and obtains SAFE_APPEND with a bound capability.
+- The owner separately assesses the safe study in the adversarial supplement.
 
 ## Results
 
@@ -21,54 +26,46 @@ Owner: 0xeb57bc7125fa60d7482CE12058397369AB3581f8. Guardian: 0x2da5393d7BBb9A037
 
 | Action | Caller | Finality | Execution | Explorer |
 |---|---|---|---|---|
-| A creates happy lineage | A | FINALIZED | SUCCESS | [0xec7a12cb412c39fb3191fcd02404d5c977f0395a7f4a9aa0489c827a8fc3a4cf](https://explorer-studio.genlayer.com/tx/0xec7a12cb412c39fb3191fcd02404d5c977f0395a7f4a9aa0489c827a8fc3a4cf) |
-| A proposes verified baseline | A | FINALIZED | SUCCESS | [0x788983aabf64df3259d244d24353b3783e5575aade82963ee782c710f503fdd6](https://explorer-studio.genlayer.com/tx/0x788983aabf64df3259d244d24353b3783e5575aade82963ee782c710f503fdd6) |
-| B accepts exact baseline consent | B | FINALIZED | SUCCESS | [0x1b5a5064ebc955bfbe48b31c9cd68ce18b8feae45ab7e309f9ea703c712b0f5b](https://explorer-studio.genlayer.com/tx/0x1b5a5064ebc955bfbe48b31c9cd68ce18b8feae45ab7e309f9ea703c712b0f5b) |
-| A opens parallel study that will become stale | A | FINALIZED | SUCCESS | [0x141cfd51834c40adecad658a99e238a3d4b8270fae13ab995a85936e834a12cc](https://explorer-studio.genlayer.com/tx/0x141cfd51834c40adecad658a99e238a3d4b8270fae13ab995a85936e834a12cc) |
-| B opens safe-compatible study | B | FINALIZED | SUCCESS | [0x444757f720659f64f2c4aa7b27cb19001974bc6f12166fe3dbb20fae782e50da](https://explorer-studio.genlayer.com/tx/0x444757f720659f64f2c4aa7b27cb19001974bc6f12166fe3dbb20fae782e50da) |
-| B assesses safe-compatible study attempt 1 | B | FINALIZED | SUCCESS | [0xd540068e27ee81b0d256dff36b36650e5eb4e9e996da811d2a0cef11576cf2b2](https://explorer-studio.genlayer.com/tx/0xd540068e27ee81b0d256dff36b36650e5eb4e9e996da811d2a0cef11576cf2b2) |
-| B cannot consume owner capability | B | FINALIZED | ERROR | [0xcd859d14d665f10feb3a794725a853cd5d190bc657dcf11a9218a63ea46ec133](https://explorer-studio.genlayer.com/tx/0xcd859d14d665f10feb3a794725a853cd5d190bc657dcf11a9218a63ea46ec133) |
-| wrong capability digest rejected | A | FINALIZED | ERROR | [0x2877bee1dc3a6bb301ed5aad69c7ce591f2e719075684ad10490e736cc7ac481](https://explorer-studio.genlayer.com/tx/0x2877bee1dc3a6bb301ed5aad69c7ce591f2e719075684ad10490e736cc7ac481) |
-| A activates exact capability | A | FINALIZED | SUCCESS | [0x2bee51b88ef37f8162cdb3f985b6eccc70f0868ceb97c65413d5916def6f56ce](https://explorer-studio.genlayer.com/tx/0x2bee51b88ef37f8162cdb3f985b6eccc70f0868ceb97c65413d5916def6f56ce) |
-| activation replay rejected | A | FINALIZED | ERROR | [0x3e039a653e3b28a188a980da7fff07e9d14740287504f02ccc20bdc254193458](https://explorer-studio.genlayer.com/tx/0x3e039a653e3b28a188a980da7fff07e9d14740287504f02ccc20bdc254193458) |
-| stale parallel study rejected | B | FINALIZED | ERROR | [0x3d66c281c341ac18cbe205a20c5e0e2dfcbf980a7e96e8e0f32301d0139510eb](https://explorer-studio.genlayer.com/tx/0x3d66c281c341ac18cbe205a20c5e0e2dfcbf980a7e96e8e0f32301d0139510eb) |
-| B opens structural conflict | B | FINALIZED | SUCCESS | [0x86db5b76a39fec3847b3acff4ff66e2683059b0d28f4b2f5520e79bda6960c40](https://explorer-studio.genlayer.com/tx/0x86db5b76a39fec3847b3acff4ff66e2683059b0d28f4b2f5520e79bda6960c40) |
-| B assesses structural conflict | B | FINALIZED | SUCCESS | [0x4dd81e130edbaa9e89c04f25ee614a56e24e5aeffc4959605308206c50f6e14b](https://explorer-studio.genlayer.com/tx/0x4dd81e130edbaa9e89c04f25ee614a56e24e5aeffc4959605308206c50f6e14b) |
-| A opens unavailable source | A | FINALIZED | SUCCESS | [0xffa779584b7b165e541a6d1f623a28bdec6e60da72e1d897b642668c7932838c](https://explorer-studio.genlayer.com/tx/0xffa779584b7b165e541a6d1f623a28bdec6e60da72e1d897b642668c7932838c) |
-| B assesses unavailable source | B | FINALIZED | SUCCESS | [0xeb5de1872c2f8f95abbd9beda277dbb3e82286607e4176f8b5c5d2e4fbf05d34](https://explorer-studio.genlayer.com/tx/0xeb5de1872c2f8f95abbd9beda277dbb3e82286607e4176f8b5c5d2e4fbf05d34) |
-| A creates semantic-control lineage | A | FINALIZED | SUCCESS | [0x18dd51ea546167bab793cbf9ceae2c6eb72063708d446834ef72e53ad8b0ef38](https://explorer-studio.genlayer.com/tx/0x18dd51ea546167bab793cbf9ceae2c6eb72063708d446834ef72e53ad8b0ef38) |
-| A proposes semantic baseline | A | FINALIZED | SUCCESS | [0xdb6d9693a4cc2d44109cddbf49b453cc1f2729b0f5d1d8d4c9b0834496c881bb](https://explorer-studio.genlayer.com/tx/0xdb6d9693a4cc2d44109cddbf49b453cc1f2729b0f5d1d8d4c9b0834496c881bb) |
-| B accepts semantic baseline | B | FINALIZED | SUCCESS | [0xf96081df0dc5a6146c8750b8d47ea7f39661fbde3a1ba66611bcdf9cbe7b0ea5](https://explorer-studio.genlayer.com/tx/0xf96081df0dc5a6146c8750b8d47ea7f39661fbde3a1ba66611bcdf9cbe7b0ea5) |
-| B opens semantic repurpose | B | FINALIZED | SUCCESS | [0x4b2565d161eefa06e9aba280da44385f4b260d298c6e979c071832b809d4205e](https://explorer-studio.genlayer.com/tx/0x4b2565d161eefa06e9aba280da44385f4b260d298c6e979c071832b809d4205e) |
-| B assesses semantic repurpose | B | FINALIZED | SUCCESS | [0x380354e5b68bae82ffb4c84e4bef4c613778f72fae8c6a535bff57fb4d123fd2](https://explorer-studio.genlayer.com/tx/0x380354e5b68bae82ffb4c84e4bef4c613778f72fae8c6a535bff57fb4d123fd2) |
-| A creates role-control lineage | A | FINALIZED | SUCCESS | [0xdf7967975f1053d53535fe928b514497cc12f7bff202e4d11186756abe709d23](https://explorer-studio.genlayer.com/tx/0xdf7967975f1053d53535fe928b514497cc12f7bff202e4d11186756abe709d23) |
-| B cannot propose owner baseline | B | FINALIZED | ERROR | [0x24df9bdc17ca3c5558021fc751855aeca784e18bfbfa379013a6660431ed9f6e](https://explorer-studio.genlayer.com/tx/0x24df9bdc17ca3c5558021fc751855aeca784e18bfbfa379013a6660431ed9f6e) |
+| A creates happy lineage | A | FINALIZED | SUCCESS | [0xda8515ad63de4acc1206b3090d0d7cb313dd370212172f70c32e43f5dda6f2b2](https://explorer-studio.genlayer.com/tx/0xda8515ad63de4acc1206b3090d0d7cb313dd370212172f70c32e43f5dda6f2b2) |
+| A proposes verified baseline | A | FINALIZED | SUCCESS | [0xae8066f2ad05123d884d844cfc7079fc226549d488c4160e379d428dc2769f4f](https://explorer-studio.genlayer.com/tx/0xae8066f2ad05123d884d844cfc7079fc226549d488c4160e379d428dc2769f4f) |
+| B accepts exact baseline consent | B | FINALIZED | SUCCESS | [0x4427d7f78b272af26929c006353efa42ceb2311c5c6027c4abe129d8570b262e](https://explorer-studio.genlayer.com/tx/0x4427d7f78b272af26929c006353efa42ceb2311c5c6027c4abe129d8570b262e) |
+| A opens parallel study that will become stale | A | FINALIZED | SUCCESS | [0x548a4dcb57b3502119c0a3b32610fb697a915760a545bd462314f0a4026ca164](https://explorer-studio.genlayer.com/tx/0x548a4dcb57b3502119c0a3b32610fb697a915760a545bd462314f0a4026ca164) |
+| B opens safe-compatible study | B | FINALIZED | SUCCESS | [0x04fff411288de82d640623b006e91ac09a2bf5041092c16cee4c9b1343d2ffe8](https://explorer-studio.genlayer.com/tx/0x04fff411288de82d640623b006e91ac09a2bf5041092c16cee4c9b1343d2ffe8) |
+| outsider cannot poison open study with wrong digest | outsider | FINALIZED | ERROR | [0x80dafa9cd3f428533e12a6a3d82815be0076022ea638d41b30cbaa374d355ce4](https://explorer-studio.genlayer.com/tx/0x80dafa9cd3f428533e12a6a3d82815be0076022ea638d41b30cbaa374d355ce4) |
+| outsider cannot assess even with correct digests | outsider | FINALIZED | ERROR | [0xd97a17712afba82bb46795816429cc52d0832baa719b8f5ffabb18e59e749ac7](https://explorer-studio.genlayer.com/tx/0xd97a17712afba82bb46795816429cc52d0832baa719b8f5ffabb18e59e749ac7) |
+| B assesses safe-compatible study attempt 1 | B | FINALIZED | SUCCESS | [0x1f06674182c9fc0c1ed670d3c9740dc538e3c1912828b8d3ff1b0f2ad37260cb](https://explorer-studio.genlayer.com/tx/0x1f06674182c9fc0c1ed670d3c9740dc538e3c1912828b8d3ff1b0f2ad37260cb) |
+| B cannot consume owner capability | B | FINALIZED | ERROR | [0x7e707e15d2a206a2ddbb8dd3c7d7a1952b1d2ac2b883fd47b0eaeb6a9b0467dc](https://explorer-studio.genlayer.com/tx/0x7e707e15d2a206a2ddbb8dd3c7d7a1952b1d2ac2b883fd47b0eaeb6a9b0467dc) |
+| wrong capability digest rejected | A | FINALIZED | ERROR | [0x36a0764d05c014e58b86e17f83653664f15291fedd1029ee829e70320febceea](https://explorer-studio.genlayer.com/tx/0x36a0764d05c014e58b86e17f83653664f15291fedd1029ee829e70320febceea) |
+| A activates exact capability | A | FINALIZED | SUCCESS | [0x1e9225754e0a585c19edcb05d892ec9635e1b210f8c68d6a1ff244f34334bd19](https://explorer-studio.genlayer.com/tx/0x1e9225754e0a585c19edcb05d892ec9635e1b210f8c68d6a1ff244f34334bd19) |
+| activation replay rejected | A | FINALIZED | ERROR | [0x12f1de21ac8ad3c9fe61d29a695c24f97b090ef012572e477b65d9a1aa65d87e](https://explorer-studio.genlayer.com/tx/0x12f1de21ac8ad3c9fe61d29a695c24f97b090ef012572e477b65d9a1aa65d87e) |
+| stale parallel study rejected | B | FINALIZED | ERROR | [0xf854c722152905d2d53af3b4bfb4d4120c63144c6e4cdf3c21a81f56cbc58b54](https://explorer-studio.genlayer.com/tx/0xf854c722152905d2d53af3b4bfb4d4120c63144c6e4cdf3c21a81f56cbc58b54) |
+| B opens structural conflict | B | FINALIZED | SUCCESS | [0xedd78dc6f93d760e982f16a9bd3958fdb51cca57b28348caa6dc1b5948bc4c47](https://explorer-studio.genlayer.com/tx/0xedd78dc6f93d760e982f16a9bd3958fdb51cca57b28348caa6dc1b5948bc4c47) |
+| B assesses structural conflict | B | FINALIZED | SUCCESS | [0xf860eb5bf95924aaaece1f9b8032a626e9b86bc8b30c86cbaecd24eca8ad4135](https://explorer-studio.genlayer.com/tx/0xf860eb5bf95924aaaece1f9b8032a626e9b86bc8b30c86cbaecd24eca8ad4135) |
+| A opens unavailable source | A | FINALIZED | SUCCESS | [0xf51c83ffbeeaec94e9b78cd97dba10ccd735533127b937d7a8cbbb5f7dd28822](https://explorer-studio.genlayer.com/tx/0xf51c83ffbeeaec94e9b78cd97dba10ccd735533127b937d7a8cbbb5f7dd28822) |
+| B assesses unavailable source | B | FINALIZED | SUCCESS | [0xd3b5a4d319be054eab3722fdd38f3024a1e0f9ce4029eb5658e1990f174db89b](https://explorer-studio.genlayer.com/tx/0xd3b5a4d319be054eab3722fdd38f3024a1e0f9ce4029eb5658e1990f174db89b) |
+| A creates semantic-control lineage | A | FINALIZED | SUCCESS | [0xe0ed0664a479333d07fbcfa82e90c6530a45bbe6c1c3736cc347d9c205f5f194](https://explorer-studio.genlayer.com/tx/0xe0ed0664a479333d07fbcfa82e90c6530a45bbe6c1c3736cc347d9c205f5f194) |
+| A proposes semantic baseline | A | FINALIZED | SUCCESS | [0xc8527fb4a2f148534d423d8647c7931e852f7db73611bbb417ff2e78e3a9c2db](https://explorer-studio.genlayer.com/tx/0xc8527fb4a2f148534d423d8647c7931e852f7db73611bbb417ff2e78e3a9c2db) |
+| B accepts semantic baseline | B | FINALIZED | SUCCESS | [0x684816ccf831788d68c8f98827ffa2adf9859941c6e7b78fe6863dbb4bbd6bd4](https://explorer-studio.genlayer.com/tx/0x684816ccf831788d68c8f98827ffa2adf9859941c6e7b78fe6863dbb4bbd6bd4) |
+| B opens semantic repurpose | B | FINALIZED | SUCCESS | [0x2eae86c4072a813c8dcefa0a6086cd00c80e8dd60fc613d4079cd56f3164adfa](https://explorer-studio.genlayer.com/tx/0x2eae86c4072a813c8dcefa0a6086cd00c80e8dd60fc613d4079cd56f3164adfa) |
+| B assesses semantic repurpose | B | FINALIZED | SUCCESS | [0x7e4dde4e1dff54feeafe32361fe29a3e1f023e7d928ec4fd1bbb0155d40b8488](https://explorer-studio.genlayer.com/tx/0x7e4dde4e1dff54feeafe32361fe29a3e1f023e7d928ec4fd1bbb0155d40b8488) |
+| A creates role-control lineage | A | FINALIZED | SUCCESS | [0xa6d5a291bad1785ee209017a90d23e25df49532965d29f1e113af24dc2ceaed5](https://explorer-studio.genlayer.com/tx/0xa6d5a291bad1785ee209017a90d23e25df49532965d29f1e113af24dc2ceaed5) |
+| B cannot propose owner baseline | B | FINALIZED | ERROR | [0x1e5ef1fea69ebf3caaf3e82f3fcd91bff4c9fabcbc4ea0cf8588223265419e49](https://explorer-studio.genlayer.com/tx/0x1e5ef1fea69ebf3caaf3e82f3fcd91bff4c9fabcbc4ea0cf8588223265419e49) |
 
 ## Adversarial supplement
 
-Machine report: [studionet-adversarial-942217400.json](live-evidence/studionet-adversarial-942217400.json).
-
-| Action | Caller | Finality | Execution | Explorer |
-|---|---|---|---|---|
-| A creates integrity-control lineage | A | FINALIZED | SUCCESS | [0x39e5…686d](https://explorer-studio.genlayer.com/tx/0x39e571656c9ef9ef7a389ef04ec94ef162191ea7f5cf11be8dbf1ef97f75868d) |
-| A proposes integrity baseline | A | FINALIZED | SUCCESS | [0x098a…88b8](https://explorer-studio.genlayer.com/tx/0x098a83bed42d54bef633fb2ab2a4b91132b21887b54feaf4289bcb81607888b8) |
-| B accepts integrity baseline | B | FINALIZED | SUCCESS | [0x4544…a439](https://explorer-studio.genlayer.com/tx/0x454443a541ee0ead63ee6443a431c700664fef8e6a76938f4f1d4be7de76a439) |
-| B opens digest-control study | B | FINALIZED | SUCCESS | [0x0f0e…2b68](https://explorer-studio.genlayer.com/tx/0x0f0ee6977882adc6be5df36cd7af945b714be2b758334b617420d5c344b62b68) |
-| Wrong active-record digest rejected | B | FINALIZED | ERROR | [0xcd1a…e1f4](https://explorer-studio.genlayer.com/tx/0xcd1adb5c1de2feda7bf37003ce8cef85f17f0951502d44c3e7b1e5315ce6e1f4) |
-| Fetched candidate digest mismatch fails closed | B | FINALIZED | SUCCESS | [0xed0a…fbdc](https://explorer-studio.genlayer.com/tx/0xed0a9c9b618cb0c3ba20a7d5d1c429758afc13c0dd2c1ca356551193e1cbfbdc) |
-| A creates cross-lineage control | A | FINALIZED | SUCCESS | [0x826c…3d37](https://explorer-studio.genlayer.com/tx/0x826cf446a9154c50e0311dd412234f7883328fc85d2128c81c1423a100ce3d37) |
-| A proposes cross-lineage baseline | A | FINALIZED | SUCCESS | [0xf5fb…a486](https://explorer-studio.genlayer.com/tx/0xf5fba26b247f8915e9a2e8316996cff50b53693aeeae6e95f2398858e3d8a486) |
-| B accepts cross-lineage baseline | B | FINALIZED | SUCCESS | [0x1a45…3456](https://explorer-studio.genlayer.com/tx/0x1a458b26a6d701a3c584b5006ae85d4e40096fbc9f075dcc017d2901ce8d3456) |
-| B opens cross-lineage safe study | B | FINALIZED | SUCCESS | [0xb879…623c](https://explorer-studio.genlayer.com/tx/0xb879453babd84333cc86fcdce54ade7a820ec51d48b44cff739c49d5ba62623c) |
-| B assesses bound safe study | B | FINALIZED | SUCCESS | [0xadfb…e6e3](https://explorer-studio.genlayer.com/tx/0xadfb8bc5d9fc32d8be8254e69eb9edbf8245876a55679cd1e49c7f75108e86e3) |
-| Foreign-lineage capability rejected | A | FINALIZED | ERROR | [0x5563…d57e](https://explorer-studio.genlayer.com/tx/0x5563e7ce4e55bfadca2149ea34907c7c6958f19026b2b11889fbac3029f0d57e) |
-| Exact study-bound capability activates | A | FINALIZED | SUCCESS | [0x8283…d19c](https://explorer-studio.genlayer.com/tx/0x8283fa6f6d01fdded798787650dd9ee7372fe9cae14ff4dd95d4d978a887d19c) |
-
-The wrong active-record digest and foreign-capability transactions finalized with
-execution `ERROR` and exact affected-object pre/post equality. The fetched-content
-digest mismatch finalized successfully into `ASSESSED / UNRESOLVED` with an empty
-capability, proving the positive state remains unreachable when the commitment does
-not match the bytes fetched by validators.
+| A creates integrity-control lineage | A | FINALIZED | SUCCESS | [0x98b3f8df4852627bb0a542b31faeae3fe8e2746e372a679c838173b7e62bb039](https://explorer-studio.genlayer.com/tx/0x98b3f8df4852627bb0a542b31faeae3fe8e2746e372a679c838173b7e62bb039) |
+| A proposes integrity baseline | A | FINALIZED | SUCCESS | [0x9229ecaf2d00665a15b6f2be2c372d9071266ab1d0fbf374ecb7e8b3ae695976](https://explorer-studio.genlayer.com/tx/0x9229ecaf2d00665a15b6f2be2c372d9071266ab1d0fbf374ecb7e8b3ae695976) |
+| B accepts integrity baseline | B | FINALIZED | SUCCESS | [0x3ecd0c4519fb2461ee36271dc9ca3fd7a4454a76453ab552973196509e961471](https://explorer-studio.genlayer.com/tx/0x3ecd0c4519fb2461ee36271dc9ca3fd7a4454a76453ab552973196509e961471) |
+| B opens digest-control study | B | FINALIZED | SUCCESS | [0x0e268abfc2871882cf6a94e1f6b6cb4f0f0d39017e2cc5f9e829b1824f26389f](https://explorer-studio.genlayer.com/tx/0x0e268abfc2871882cf6a94e1f6b6cb4f0f0d39017e2cc5f9e829b1824f26389f) |
+| wrong old record digest is rejected | B | FINALIZED | ERROR | [0xa33c10b67c242b922e5af06a6a28042dcca6d417593c2495b79b9a74f228b0f5](https://explorer-studio.genlayer.com/tx/0xa33c10b67c242b922e5af06a6a28042dcca6d417593c2495b79b9a74f228b0f5) |
+| fetched new content digest mismatch fails closed | B | FINALIZED | SUCCESS | [0x4488125dd21e7fe8c3eb4826463db99f699042dadf1134f08ed0b6a3b171ef09](https://explorer-studio.genlayer.com/tx/0x4488125dd21e7fe8c3eb4826463db99f699042dadf1134f08ed0b6a3b171ef09) |
+| A creates cross-lineage control | A | FINALIZED | SUCCESS | [0x5271619f508fee57d128f1bbcf35321d442b2f756d1eab3909cdb782a4546302](https://explorer-studio.genlayer.com/tx/0x5271619f508fee57d128f1bbcf35321d442b2f756d1eab3909cdb782a4546302) |
+| A proposes cross-lineage baseline | A | FINALIZED | SUCCESS | [0x67eae340a77639f2302be75f197c424c77d8449f45467a6298a64d5feb6c32e8](https://explorer-studio.genlayer.com/tx/0x67eae340a77639f2302be75f197c424c77d8449f45467a6298a64d5feb6c32e8) |
+| B accepts cross-lineage baseline | B | FINALIZED | SUCCESS | [0x0ec0d25ed06baa70383de2f9343a6364f78767e92b63dbd4b583b9b04d647952](https://explorer-studio.genlayer.com/tx/0x0ec0d25ed06baa70383de2f9343a6364f78767e92b63dbd4b583b9b04d647952) |
+| B opens cross-lineage safe study | B | FINALIZED | SUCCESS | [0x248712c07ad4d13ecf693ae0f9429e5574b6cc4c5e2d2a7ed64b4b4c43297789](https://explorer-studio.genlayer.com/tx/0x248712c07ad4d13ecf693ae0f9429e5574b6cc4c5e2d2a7ed64b4b4c43297789) |
+| A assesses cross-lineage safe study attempt 1 | A | FINALIZED | SUCCESS | [0xff06fee0139178fd836321909714ddf70087c5d2c28f12e3d79f40bb3a1d9234](https://explorer-studio.genlayer.com/tx/0xff06fee0139178fd836321909714ddf70087c5d2c28f12e3d79f40bb3a1d9234) |
+| foreign lineage capability is rejected | A | FINALIZED | ERROR | [0xd490c2814cfdc2622a96642b150ec0bb662acdc39ddf5ef3c4007f36893e08c4](https://explorer-studio.genlayer.com/tx/0xd490c2814cfdc2622a96642b150ec0bb662acdc39ddf5ef3c4007f36893e08c4) |
+| exact bound capability still activates | A | FINALIZED | SUCCESS | [0xc55501bb7189bd8900056ad996e381b0fe1c7f71deafc2f795b75c9196ea067a](https://explorer-studio.genlayer.com/tx/0xc55501bb7189bd8900056ad996e381b0fe1c7f71deafc2f795b75c9196ea067a) |
 
 ## Sources
 
@@ -81,10 +78,7 @@ Public Sourcify records were fetched from exact Sepolia chain/address endpoints.
 
 ## Scope and remaining verification
 
-Machine evidence with exact arguments and state readbacks: [primary run JSON](live-evidence/studionet-942217300.json)
-and [adversarial supplement JSON](live-evidence/studionet-adversarial-942217400.json).
-Both runs used signed SDK transactions from the two non-deployer test actors. Deployed
-source parity is independently recorded in [SOURCE_PARITY.json](SOURCE_PARITY.json).
-A true append fixture and runtime semantic equivalence are not established by this report.
+Machine evidence with exact arguments and state readbacks: [run JSON](live-evidence/studionet-20261016-primary.json) and [adversarial supplement](live-evidence/studionet-adversarial-20261016-adversarial.json).
+These runs used signed SDK transactions. A true append fixture and runtime semantic equivalence are not established by this report.
 The positive fixture preserves the layout. Matching labels/types alone do not prove unchanged runtime meaning.
 Negative equality snapshots in this runner cover the targeted object; they do not constitute a complete global state audit.

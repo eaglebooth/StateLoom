@@ -2,7 +2,7 @@ import {createClient} from 'genlayer-js';
 import {studionet} from 'genlayer-js/chains';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-const address='0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd';
+const address=process.argv[2]||'0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9';
 const remote=Buffer.from(await createClient({chain:studionet}).getContractCode(address));
 const local=readFileSync('contracts/state_loom.py');
 const sha=x=>createHash('sha256').update(x).digest('hex');

@@ -1,8 +1,18 @@
 # Verification status
 
-Contract v1.2: 35 finalized SDK transactions and 52 passing assertions across the
+Contract v1.2.1: 37 finalized SDK transactions and 58 distinct passing assertions across the
 primary lifecycle and adversarial supplement.
 Source parity: verified byte-for-byte via gen_getContractCode; see SOURCE_PARITY.json.
+All 37 recorded receipts were independently fetched and matched against StudioNet.
+The two outsider assessment receipts contain PARTICIPANT_ONLY. Both preserve exact
+study and lineage state; guardian assessment of that same OPEN study then succeeds.
+The owner separately assesses and activates a safe study in the supplement.
+
+Production: https://stateloom.vercel.app, targeting
+`0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9`.
+Production state readback is documented in FRONTEND_TRANSACTION_AUDIT_1_2_1.md.
+Local verification: 11 pytest tests, 2 RPC retry tests, GenVM lint/schema,
+ESLint, TypeScript and Next.js production build passed on 2026-10-16.
 
 Frontend consistency checks after live testing:
 - Votes objects are no longer spread as receipt arrays.

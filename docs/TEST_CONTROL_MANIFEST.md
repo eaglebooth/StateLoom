@@ -16,6 +16,13 @@ epoch, active address, digests, consumed flag and counters.
 | replay | consumed flag | second activation rejected unchanged |
 | cross-lineage capability | lineage binding | rejected unchanged |
 | malicious leader | plausible false relation | independent validator rejects |
+| outsider, wrong candidate digest | assessment caller | PARTICIPANT_ONLY; exact study and lineage unchanged and OPEN |
+| outsider, correct digests | assessment caller | same rejection; valid inputs do not bypass authorization |
+
+The authorization controls are followed by guardian assessment of the exact same
+study, with no replacement lineage, epoch or candidate. The supplemental live run
+also exercises assessment by the owner. The local parameterized regression tests
+both authorized participant roles after the outsider rejection.
 
 Local mocks prove parsers and deterministic gates only. They never substitute for the
 live StudioNet consensus run or the independent public Sourcify resources.

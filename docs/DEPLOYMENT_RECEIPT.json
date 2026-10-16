@@ -1,0 +1,20 @@
+{
+  "address": "0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9",
+  "hash": "0x01b6a586ec882c199f4e11be39977eafaae06a6bb37dab6d071ebf4719be1b9d",
+  "checkedAt": "2026-10-16T02:54:23.542Z",
+  "status": "FINALIZED",
+  "from": "0x5591ad55A861925bf04880104aa70076bAE87C91",
+  "to": "0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9",
+  "execution": "SUCCESS",
+  "result": {
+    "raw": "AAA=",
+    "status": "return",
+    "payload": {
+      "raw": [
+        0
+      ],
+      "readable": "null"
+    }
+  },
+  "errorCode": null
+}

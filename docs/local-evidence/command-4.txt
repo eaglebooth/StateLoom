@@ -1,0 +1,12 @@
+Transient RPC read failure; retry 1/2
+Transient RPC read failure; retry 2/2
+✔ a transient read failure retries the exact same RPC request (3070.5261ms)
+✔ an ambiguous raw-transaction submission failure is never automatically resent (1.3706ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3204.0397

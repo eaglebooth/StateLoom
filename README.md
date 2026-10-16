@@ -9,11 +9,14 @@ advances its own canonical implementation registry only for `SAFE_APPEND` studie
 
 It does **not** upgrade an external proxy or claim audit/formal-verification status.
 
-Current StudioNet deployment: [`0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd`](https://explorer-studio.genlayer.com/address/0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd).
-Finalized-state readback confirms `stateloom/1.2.0`. Byte-for-byte source readback is
-recorded in [`docs/SOURCE_PARITY.json`](docs/SOURCE_PARITY.json). The superseded v1.0
-and v1.1 deployments are listed in [`deployments/studionet.json`](deployments/studionet.json).
-The finalized deployment transaction is [`0xe2ebb61dc7b83ce00dbb549108607e896f2c321654db732c1ea376993218868f`](https://explorer-studio.genlayer.com/tx/0xe2ebb61dc7b83ce00dbb549108607e896f2c321654db732c1ea376993218868f).
+Current StudioNet deployment: [`0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9`](https://explorer-studio.genlayer.com/address/0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9).
+Finalized-state readback confirms `stateloom/1.2.1`. Byte-for-byte source readback is
+recorded in [`docs/SOURCE_PARITY.json`](docs/SOURCE_PARITY.json). Superseded deployments
+are listed in [`deployments/studionet.json`](deployments/studionet.json).
+The finalized deployment transaction is [`0x01b6a586ec882c199f4e11be39977eafaae06a6bb37dab6d071ebf4719be1b9d`](https://explorer-studio.genlayer.com/tx/0x01b6a586ec882c199f4e11be39977eafaae06a6bb37dab6d071ebf4719be1b9d).
+
+Version 1.2.1 restricts `assess_study` to the lineage owner/guardian before consensus
+or mutation. See [`the steward correction`](docs/STEWARD_ASSESSMENT_AUTHORIZATION_FIX.md).
 
 ## Roles
 
@@ -35,8 +38,8 @@ npm run build
 
 Local mocks exercise contract invariants only; they are not submission evidence. The
 submission-grade two-wallet run is indexed in
-[`docs/LIVE_STUDIONET_EVIDENCE.md`](docs/LIVE_STUDIONET_EVIDENCE.md): 35 finalized
-transactions across the lifecycle and adversarial runs, 52 passing assertions and
+[`docs/LIVE_STUDIONET_EVIDENCE.md`](docs/LIVE_STUDIONET_EVIDENCE.md): 37 finalized
+transactions across the lifecycle and adversarial runs, 58 distinct passing assertions and
 zero failed assertions. Each write records
 the caller, exact arguments, expected/actual execution and authoritative before/after
 readback. The frontend waits for `FINALIZED`, rejects execution errors and verifies
@@ -47,8 +50,11 @@ the relevant contract readback before displaying success.
 - [Resource manifest](docs/TEST_RESOURCE_MANIFEST.md)
 - [Negative/adversarial controls](docs/TEST_CONTROL_MANIFEST.md)
 - [Live StudioNet evidence](docs/LIVE_STUDIONET_EVIDENCE.md)
-- [Machine-readable live run](docs/live-evidence/studionet-942217300.json)
-- [Machine-readable adversarial supplement](docs/live-evidence/studionet-adversarial-942217400.json)
+- [Machine-readable live run](docs/live-evidence/studionet-20261016-primary.json)
+- [Verified primary receipts](docs/live-evidence/studionet-20261016-primary.receipts.json)
+- [Machine-readable adversarial supplement](docs/live-evidence/studionet-adversarial-20261016-adversarial.json)
+- [Frontend transaction audit](docs/FRONTEND_TRANSACTION_AUDIT_1_2_1.md)
+- [Steward resubmission text](docs/RESUBMISSION_1_2_1.md)
 - [Deployed-source parity](docs/SOURCE_PARITY.json)
 - `docs/schema.json` and `docs/local-evidence/` are generated verification artifacts.
 

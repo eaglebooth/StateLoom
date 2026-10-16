@@ -1,0 +1,871 @@
+{
+  "contract": "0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9",
+  "network": "GenLayer StudioNet 61999",
+  "run": "20261016-adversarial",
+  "actors": {
+    "owner": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+    "guardian": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+    "deployerRole": "none"
+  },
+  "controls": [
+    "wrong-old-record-digest",
+    "fetched-new-content-digest-mismatch",
+    "cross-lineage-capability"
+  ],
+  "transactions": [
+    {
+      "label": "A creates integrity-control lineage",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "create_lineage",
+      "args": [
+        "integrity-20261016-adversarial",
+        "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+        11155111
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x98b3f8df4852627bb0a542b31faeae3fe8e2746e372a679c838173b7e62bb039",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "local_id": "integrity-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        }
+      }
+    },
+    {
+      "label": "A proposes integrity baseline",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "propose_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+        "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x9229ecaf2d00665a15b6f2be2c372d9071266ab1d0fbf374ecb7e8b3ae695976",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "local_id": "integrity-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "475baee232c43240bd3fea613a0a6699e8d5c5c0b4b4b318cb7e970072225e64",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "local_id": "integrity-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        }
+      }
+    },
+    {
+      "label": "B accepts integrity baseline",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "accept_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+        "475baee232c43240bd3fea613a0a6699e8d5c5c0b4b4b318cb7e970072225e64"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x3ecd0c4519fb2461ee36271dc9ca3fd7a4454a76453ab552973196509e961471",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "475baee232c43240bd3fea613a0a6699e8d5c5c0b4b4b318cb7e970072225e64",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "local_id": "integrity-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "475baee232c43240bd3fea613a0a6699e8d5c5c0b4b4b318cb7e970072225e64",
+          "epoch": 1,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "local_id": "integrity-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "ACTIVE"
+        }
+      }
+    },
+    {
+      "label": "B opens digest-control study",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+        "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x0e268abfc2871882cf6a94e1f6b6cb4f0f0d39017e2cc5f9e829b1824f26389f",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "wrong old record digest is rejected",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+      ],
+      "expected": "ERROR",
+      "hash": "0xa33c10b67c242b922e5af06a6a28042dcca6d417593c2495b79b9a74f228b0f5",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "fetched new content digest mismatch fails closed",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x4488125dd21e7fe8c3eb4826463db99f699042dadf1134f08ed0b6a3b171ef09",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "matrix_digest": "aab61105b6915a2f9632a5b8697925db0d516356098e95bcc5a38154324fa93e",
+          "new_record_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "source or semantic evidence unavailable",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "A creates cross-lineage control",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "create_lineage",
+      "args": [
+        "cross-20261016-adversarial",
+        "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+        11155111
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x5271619f508fee57d128f1bbcf35321d442b2f756d1eab3909cdb782a4546302",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "local_id": "cross-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        }
+      }
+    },
+    {
+      "label": "A proposes cross-lineage baseline",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "propose_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+        "0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x67eae340a77639f2302be75f197c424c77d8449f45467a6298a64d5feb6c32e8",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "",
+          "active_record_digest": "",
+          "chain_id": 11155111,
+          "consent_digest": "",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "local_id": "cross-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "DRAFT"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "151f88fceba9f9bd17f1ad96621569de32165b52d4cbe5624b18096e571fc8f8",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "local_id": "cross-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        }
+      }
+    },
+    {
+      "label": "B accepts cross-lineage baseline",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "accept_baseline",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+        "151f88fceba9f9bd17f1ad96621569de32165b52d4cbe5624b18096e571fc8f8"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x0ec0d25ed06baa70383de2f9343a6364f78767e92b63dbd4b583b9b04d647952",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "151f88fceba9f9bd17f1ad96621569de32165b52d4cbe5624b18096e571fc8f8",
+          "epoch": 0,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "local_id": "cross-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "BASELINE_PROPOSED"
+        },
+        "after": {
+          "activated_count": 0,
+          "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+          "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "chain_id": 11155111,
+          "consent_digest": "151f88fceba9f9bd17f1ad96621569de32165b52d4cbe5624b18096e571fc8f8",
+          "epoch": 1,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "local_id": "cross-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "ACTIVE"
+        }
+      }
+    },
+    {
+      "label": "B opens cross-lineage safe study",
+      "caller": "0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f",
+      "method": "open_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+        "0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0x248712c07ad4d13ecf693ae0f9429e5574b6cc4c5e2d2a7ed64b4b4c43297789",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": null,
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "A assesses cross-lineage safe study attempt 1",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "assess_study",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3"
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xff06fee0139178fd836321909714ddf70087c5d2c28f12e3d79f40bb3a1d9234",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "foreign lineage capability is rejected",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "activate_candidate",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "d6f72f70a948f3b174635fe01f2ef3cd5e2acbbfd1135a2500b7eeb209abb95f",
+        1
+      ],
+      "expected": "ERROR",
+      "hash": "0xd490c2814cfdc2622a96642b150ec0bb662acdc39ddf5ef3c4007f36893e08c4",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "exact bound capability still activates",
+      "caller": "0xeb57bc7125fa60d7482CE12058397369AB3581f8",
+      "method": "activate_candidate",
+      "args": [
+        "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+        1
+      ],
+      "expected": "SUCCESS",
+      "hash": "0xc55501bb7189bd8900056ad996e381b0fe1c7f71deafc2f795b75c9196ea067a",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "readback": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+          "consumed": true,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "CONSUMED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "label": "exact deployed identity",
+      "pass": true,
+      "details": {
+        "version": "stateloom/1.2.1"
+      }
+    },
+    {
+      "label": "A creates integrity-control lineage finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x98b3f8df4852627bb0a542b31faeae3fe8e2746e372a679c838173b7e62bb039",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "A proposes integrity baseline finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x9229ecaf2d00665a15b6f2be2c372d9071266ab1d0fbf374ecb7e8b3ae695976",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B accepts integrity baseline finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x3ecd0c4519fb2461ee36271dc9ca3fd7a4454a76453ab552973196509e961471",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B opens digest-control study finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x0e268abfc2871882cf6a94e1f6b6cb4f0f0d39017e2cc5f9e829b1824f26389f",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "wrong old record digest is rejected finalized ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xa33c10b67c242b922e5af06a6a28042dcca6d417593c2495b79b9a74f228b0f5",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "wrong old record digest is rejected exact pre/post equality",
+      "pass": true,
+      "details": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+          "matrix_digest": "",
+          "new_record_digest": "",
+          "old_record_digest": "",
+          "risk_codes": "",
+          "status": "OPEN",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "UNRESOLVED"
+        }
+      }
+    },
+    {
+      "label": "fetched new content digest mismatch fails closed finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x4488125dd21e7fe8c3eb4826463db99f699042dadf1134f08ed0b6a3b171ef09",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "digest mismatch cannot create positive capability",
+      "pass": true,
+      "details": {
+        "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "capability_digest": "",
+        "consumed": false,
+        "expected_epoch": 1,
+        "findings": "[]",
+        "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+        "matrix_digest": "aab61105b6915a2f9632a5b8697925db0d516356098e95bcc5a38154324fa93e",
+        "new_record_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "risk_codes": "source or semantic evidence unavailable",
+        "status": "ASSESSED",
+        "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "verdict": "UNRESOLVED"
+      }
+    },
+    {
+      "label": "A creates cross-lineage control finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x5271619f508fee57d128f1bbcf35321d442b2f756d1eab3909cdb782a4546302",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "A proposes cross-lineage baseline finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x67eae340a77639f2302be75f197c424c77d8449f45467a6298a64d5feb6c32e8",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B accepts cross-lineage baseline finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x0ec0d25ed06baa70383de2f9343a6364f78767e92b63dbd4b583b9b04d647952",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "B opens cross-lineage safe study finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0x248712c07ad4d13ecf693ae0f9429e5574b6cc4c5e2d2a7ed64b4b4c43297789",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "A assesses cross-lineage safe study attempt 1 finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xff06fee0139178fd836321909714ddf70087c5d2c28f12e3d79f40bb3a1d9234",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "control study has its own bound capability",
+      "pass": true,
+      "details": {
+        "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+        "consumed": false,
+        "expected_epoch": 1,
+        "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+        "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+        "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+        "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+        "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+        "risk_codes": "",
+        "status": "ASSESSED",
+        "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+        "verdict": "SAFE_APPEND"
+      }
+    },
+    {
+      "label": "foreign lineage capability is rejected finalized ERROR",
+      "pass": true,
+      "details": {
+        "hash": "0xd490c2814cfdc2622a96642b150ec0bb662acdc39ddf5ef3c4007f36893e08c4",
+        "status": "FINALIZED",
+        "execution": "ERROR"
+      }
+    },
+    {
+      "label": "foreign lineage capability is rejected exact pre/post equality",
+      "pass": true,
+      "details": {
+        "before": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        },
+        "after": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+          "consumed": false,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "ASSESSED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    },
+    {
+      "label": "exact bound capability still activates finalized SUCCESS",
+      "pass": true,
+      "details": {
+        "hash": "0xc55501bb7189bd8900056ad996e381b0fe1c7f71deafc2f795b75c9196ea067a",
+        "status": "FINALIZED",
+        "execution": "SUCCESS"
+      }
+    },
+    {
+      "label": "cross control closes with exact capability only",
+      "pass": true,
+      "details": {
+        "lineage": {
+          "activated_count": 1,
+          "active_implementation": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "active_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "chain_id": 11155111,
+          "consent_digest": "151f88fceba9f9bd17f1ad96621569de32165b52d4cbe5624b18096e571fc8f8",
+          "epoch": 2,
+          "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "local_id": "cross-20261016-adversarial",
+          "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+          "status": "ACTIVE"
+        },
+        "safe": {
+          "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+          "consumed": true,
+          "expected_epoch": 1,
+          "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+          "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+          "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+          "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+          "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+          "risk_codes": "",
+          "status": "CONSUMED",
+          "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+          "verdict": "SAFE_APPEND"
+        }
+      }
+    }
+  ],
+  "final": {
+    "version": "stateloom/1.2.1",
+    "integrity": {
+      "activated_count": 0,
+      "active_implementation": "0x5508c89be3fe14fa6d1770aa5690681e99185346",
+      "active_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+      "chain_id": 11155111,
+      "consent_digest": "475baee232c43240bd3fea613a0a6699e8d5c5c0b4b4b318cb7e970072225e64",
+      "epoch": 1,
+      "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+      "local_id": "integrity-20261016-adversarial",
+      "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "status": "ACTIVE"
+    },
+    "digestMismatch": {
+      "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+      "capability_digest": "",
+      "consumed": false,
+      "expected_epoch": 1,
+      "findings": "[]",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial",
+      "matrix_digest": "aab61105b6915a2f9632a5b8697925db0d516356098e95bcc5a38154324fa93e",
+      "new_record_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+      "risk_codes": "source or semantic evidence unavailable",
+      "status": "ASSESSED",
+      "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:integrity-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+      "verdict": "UNRESOLVED"
+    },
+    "cross": {
+      "activated_count": 1,
+      "active_implementation": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+      "active_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+      "chain_id": 11155111,
+      "consent_digest": "151f88fceba9f9bd17f1ad96621569de32165b52d4cbe5624b18096e571fc8f8",
+      "epoch": 2,
+      "guardian": "0x2da5393d7bbb9a037dc3abb56dbbc5c150fc843f",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+      "local_id": "cross-20261016-adversarial",
+      "owner": "0xeb57bc7125fa60d7482ce12058397369ab3581f8",
+      "status": "ACTIVE"
+    },
+    "crossStudy": {
+      "candidate": "0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+      "capability_digest": "a48f71b522bc4fff8441332148aa9e3e83998b90c531c41bb353f154ff542f3e",
+      "consumed": true,
+      "expected_epoch": 1,
+      "findings": "[{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number\",\"new_type\":\"uint8\",\"offset\":0,\"old_label\":\"number\",\"old_type\":\"uint8\",\"relation\":\"PRESERVED_MEANING\",\"slot\":0},{\"evidence\":\"Exact normalized occupied storage row is identical.\",\"new_label\":\"number2\",\"new_type\":\"uint256\",\"offset\":0,\"old_label\":\"number2\",\"old_type\":\"uint256\",\"relation\":\"PRESERVED_MEANING\",\"slot\":1}]",
+      "lineage_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial",
+      "matrix_digest": "4c02d2b7adf14cd9241703122fc5facd9f5bd7293d8e56504057b99b7c545383",
+      "new_record_digest": "eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3",
+      "old_record_digest": "3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c",
+      "risk_codes": "",
+      "status": "CONSUMED",
+      "study_id": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:cross-20261016-adversarial:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+      "verdict": "SAFE_APPEND"
+    }
+  },
+  "foreignCapabilitySource": {
+    "contract": "0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9",
+    "studyId": "0xeb57bc7125fa60d7482ce12058397369ab3581f8:live-20261016-primary:1:0x0b3d92b913630649ad98ebc1a011e40f77d9b653",
+    "digest": "d6f72f70a948f3b174635fe01f2ef3cd5e2acbbfd1135a2500b7eeb209abb95f"
+  }
+}

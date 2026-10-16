@@ -1,8 +1,11 @@
 import {createHash} from "node:crypto";
 import {existsSync,mkdirSync,readFileSync,writeFileSync} from "node:fs";
 import {createInterface} from "node:readline";
-import {createAccount,createClient} from "genlayer-js";
-import {studionet} from "genlayer-js/chains";
+import {createAccount} from "genlayer-js";
+import {withRateLimit} from "./rpc-rate-limit.mjs";
+import {signedStudioClient} from "./signed-studio-client.mjs";
+import {installRpcReadRetries} from "./rpc-read-retries.mjs";
+installRpcReadRetries();
 
 const CONTRACT=process.argv[2];
 if(!/^0x[0-9a-fA-F]{40}$/.test(CONTRACT||""))throw new Error("Usage: node scripts/live-e2e.mjs <contract> [run-id]");
@@ -11,7 +14,11 @@ const resume=process.argv.includes("--resume");
 async function readKeys(){const rl=createInterface({input:process.stdin,terminal:false});const lines=[];return await new Promise((resolve,reject)=>{rl.on("line",line=>{const v=line.trim().replace(/^0x/,"");if(v)lines.push(v);if(lines.length===2){rl.close();resolve(lines)}});rl.on("close",()=>{if(lines.length<2)reject(new Error("Two non-deployer keys required on stdin"))})})}
 const [keyA,keyB]=await readKeys();
 const walletA=createAccount(`0x${keyA}`),walletB=createAccount(`0x${keyB}`);
-const clientA=createClient({chain:studionet,account:walletA}),clientB=createClient({chain:studionet,account:walletB});
+const clientA=signedStudioClient(walletA),clientB=signedStudioClient(walletB);
+// StudioNet currently charges zero gas. This account has no lineage role, sends
+// zero-value calls, and its private key exists only in this process.
+const outsider=createAccount(`0x${createHash('sha256').update(`stateloom-outsider:${run}:${keyA}:${keyB}`).digest('hex')}`);
+const clientC=signedStudioClient(outsider);
 const CHAIN=11155111;
 const fixture={
  safeOld:"0x5508c89BE3Fe14Fa6d1770aa5690681E99185346",safeNew:"0x0B3D92b913630649aD98EBC1A011E40f77d9B653",
@@ -24,21 +31,27 @@ async function source(a){const response=await fetch(sourceUrl(a));const raw=Buff
 const sources={safeOld:await source(fixture.safeOld),safeNew:await source(fixture.safeNew),structural:await source(fixture.structural),semanticNew:await source(fixture.semanticNew)};
 mkdirSync("docs/live-evidence",{recursive:true});const path=`docs/live-evidence/studionet-${run}.json`;
 const report=resume&&existsSync(path)?JSON.parse(readFileSync(path,"utf8")):{contract:CONTRACT,network:"GenLayer StudioNet 61999",run,actors:{owner:walletA.address,guardian:walletB.address,deployerRole:"none"},fixtures:fixture,sources,transactions:[],assertions:[],final:{}};
+if(report.contract.toLowerCase()!==CONTRACT.toLowerCase()||report.actors.owner.toLowerCase()!==walletA.address.toLowerCase()||report.actors.guardian.toLowerCase()!==walletB.address.toLowerCase())throw new Error('Resume deployment or actor mismatch');
+report.actors.outsider=outsider.address;
 const save=()=>writeFileSync(path,`${JSON.stringify(report,null,2)}\n`);
 const check=(condition,label,details={})=>{report.assertions.push({label,pass:Boolean(condition),details});save();if(!condition)throw new Error(`ASSERT:${label}`)};
-const read=async(method,args=[])=>JSON.parse(await clientA.readContract({address:CONTRACT,functionName:method,args,transactionHashVariant:"latest-final"}));
+const read=async(method,args=[])=>JSON.parse(await withRateLimit(()=>clientA.readContract({address:CONTRACT,functionName:method,args,transactionHashVariant:"latest-final"})));
 const list=value=>Array.isArray(value)?value:value&&typeof value==="object"?Object.values(value):[];
 const execution=tx=>{const leader=list(tx.consensus_data?.leader_receipt).find(x=>x?.mode==="leader")||list(tx.consensus_data?.leader_receipt)[0];if(leader?.execution_result)return leader.execution_result;if(leader?.genvm_result)return leader.genvm_result.error_code?"ERROR":"SUCCESS";const receipts=[...list(tx.consensus_data?.validators),...list(tx.consensus_data?.votes)];if(receipts.some(x=>x?.vote==="agree"&&x?.execution_result==="SUCCESS"))return "SUCCESS";if(receipts.some(x=>x?.vote==="agree"&&x?.execution_result==="ERROR"))return "ERROR";return "UNKNOWN"};
-async function snapshot(method,args,client){try{if(method==="create_lineage")return await read("get_lineage",[`${client.account.address.toLowerCase()}:${args[0]}`]);if(["propose_baseline","accept_baseline"].includes(method))return await read("get_lineage",[args[0]]);if(["open_study","assess_study","activate_candidate"].includes(method)){const id=method==="open_study"?`${args[0]}:${args[2]}:${String(args[1]).toLowerCase()}`:args[0];return await read("get_study",[id])}}catch{return null}return null}
+async function snapshot(method,args,client){try{if(method==="create_lineage")return await read("get_lineage",[`${client.account.address.toLowerCase()}:${args[0]}`]);if(["propose_baseline","accept_baseline"].includes(method))return await read("get_lineage",[args[0]]);if(["open_study","assess_study","activate_candidate"].includes(method)){const id=method==="open_study"?`${args[0]}:${args[2]}:${String(args[1]).toLowerCase()}`:args[0];const study=await read("get_study",[id]);return {study,lineage:await read("get_lineage",[study.lineage_id])}}}catch(error){if(["create_lineage","open_study"].includes(method))return null;throw error}return null}
 async function write(label,client,method,args,expected="SUCCESS",allowUndetermined=false){
- const before=await snapshot(method,args,client);const raw=await client.writeContract({address:CONTRACT,functionName:method,args,value:0n});const hash=typeof raw==="string"?raw:raw?.txId;process.stdout.write(`${label}: ${hash}\n`);let tx={};
- for(let i=0;i<420;i++){try{tx=await client.getTransaction({hash})}catch{await new Promise(r=>setTimeout(r,2500));continue}if(["FINALIZED","CANCELED","UNDETERMINED"].includes(tx.statusName))break;await new Promise(r=>setTimeout(r,2500))}
- const actual=execution(tx),after=await snapshot(method,args,client);report.transactions.push({label,caller:client.account.address,method,args,expected,hash,status:tx.statusName||"UNKNOWN",execution:actual,readback:{before,after}});save();if(allowUndetermined&&tx.statusName==="UNDETERMINED"){check(JSON.stringify(before)===JSON.stringify(after),`${label} undetermined preserves exact state`,{hash,before,after});return {hash,before,after,status:tx.statusName}}check(tx.statusName==="FINALIZED"&&actual===expected,`${label} finalized ${expected}`,{hash,status:tx.statusName,execution:actual});if(expected==="ERROR")check(JSON.stringify(before)===JSON.stringify(after),`${label} exact pre/post equality`,{before,after});return {hash,before,after,status:tx.statusName}
+ let record=resume?report.transactions.find(t=>t.label===label&&t.method===method&&JSON.stringify(t.args)===JSON.stringify(args)&&t.status!=="UNDETERMINED"):null;
+ if(record?.status==="FINALIZED"&&record.execution===expected){process.stdout.write(`RESUME ${label}: ${record.hash}\n`);return {...record.readback,hash:record.hash,status:record.status}}
+ const before=record?record.readback.before:await snapshot(method,args,client);
+ if(!record){const raw=await withRateLimit(()=>client.writeContract({address:CONTRACT,functionName:method,args,value:0n}));const hash=typeof raw==="string"?raw:raw?.txId;record={label,caller:client.account.address,method,args,expected,hash,status:"SUBMITTED",execution:"UNKNOWN",readback:{before,after:null}};report.transactions.push(record);save()}
+ const hash=record.hash;process.stdout.write(`${label}: ${hash}\n`);let tx={};
+ for(let i=0;i<150;i++){try{tx=await client.getTransaction({hash})}catch{await new Promise(r=>setTimeout(r,10000));continue}if(["FINALIZED","CANCELED","UNDETERMINED"].includes(tx.statusName))break;await new Promise(r=>setTimeout(r,10000))}
+ const actual=execution(tx),after=await snapshot(method,args,client);Object.assign(record,{status:tx.statusName||"UNKNOWN",execution:actual,readback:{before,after}});save();if(allowUndetermined&&tx.statusName==="UNDETERMINED"){check(Boolean(before)&&Boolean(after)&&JSON.stringify(before)===JSON.stringify(after),`${label} undetermined preserves exact state`,{hash,before,after});return {hash,before,after,status:tx.statusName}}check(tx.statusName==="FINALIZED"&&actual===expected,`${label} finalized ${expected}`,{hash,status:tx.statusName,execution:actual});if(expected==="ERROR")check(Boolean(before)&&Boolean(after)&&JSON.stringify(before)===JSON.stringify(after),`${label} exact pre/post equality`,{before,after});return {hash,before,after,status:tx.statusName}
 }
-const version=await clientA.readContract({address:CONTRACT,functionName:"version",args:[],transactionHashVariant:"latest-final"});check(version==="stateloom/1.2.0","deployed identity",{version});
+const version=await withRateLimit(()=>clientA.readContract({address:CONTRACT,functionName:"version",args:[],transactionHashVariant:"latest-final"}));check(version==="stateloom/1.2.1","deployed identity",{version});
 const happyLocal=`live-${run}`,happy=`${walletA.address.toLowerCase()}:${happyLocal}`;
 let hs;
-if(!resume){
+{
  await write("A creates happy lineage",clientA,"create_lineage",[happyLocal,walletB.address,CHAIN]);
  await write("A proposes verified baseline",clientA,"propose_baseline",[happy,fixture.safeOld,sources.safeOld.sha256]);hs=await read("get_lineage",[happy]);
  await write("B accepts exact baseline consent",clientB,"accept_baseline",[happy,hs.consent_digest]);
@@ -46,9 +59,19 @@ if(!resume){
  await write("B opens safe-compatible study",clientB,"open_study",[happy,fixture.safeNew,1]);
 }
 const stale=`${happy}:1:${fixture.structural.toLowerCase()}`;const safeStudy=`${happy}:1:${fixture.safeNew.toLowerCase()}`;
+for(const unfinished of report.transactions.filter(t=>t.method==='assess_study'&&t.args[0]===safeStudy&&!['FINALIZED','UNDETERMINED','CANCELED'].includes(t.status))){
+ await write(unfinished.label,clientB,unfinished.method,unfinished.args,unfinished.expected,true);
+}
 let safe=await read("get_study",[safeStudy]);
+if(safe.status==="OPEN"){
+ await write("outsider cannot poison open study with wrong digest",clientC,"assess_study",[safeStudy,sources.safeOld.sha256,"f".repeat(64)],"ERROR");
+ await write("outsider cannot assess even with correct digests",clientC,"assess_study",[safeStudy,sources.safeOld.sha256,sources.safeNew.sha256],"ERROR");
+ check((await read("get_study",[safeStudy])).status==="OPEN","outsider attempts leave the same study open");
+}
 for(let attempt=1;safe.status==="OPEN"&&attempt<=4;attempt++){await write(`B assesses safe-compatible study attempt ${attempt}`,clientB,"assess_study",[safeStudy,sources.safeOld.sha256,sources.safeNew.sha256],"SUCCESS",true);safe=await read("get_study",[safeStudy])}
 check(safe.verdict==="SAFE_APPEND"&&Boolean(safe.capability_digest),"safe pair creates capability",safe);
+const assessment=report.transactions.find(t=>t.method==="assess_study"&&t.caller.toLowerCase()===walletB.address.toLowerCase()&&t.args[0]===safeStudy&&t.status==="FINALIZED"&&t.execution==="SUCCESS");
+check(assessment?.readback.after?.study?.status==="ASSESSED","guardian assesses the exact same study after outsider rejection",{studyId:safeStudy,assessmentHash:assessment?.hash});
 await write("B cannot consume owner capability",clientB,"activate_candidate",[safeStudy,safe.capability_digest,1],"ERROR");
 await write("wrong capability digest rejected",clientA,"activate_candidate",[safeStudy,"f".repeat(64),1],"ERROR");
 await write("A activates exact capability",clientA,"activate_candidate",[safeStudy,safe.capability_digest,1]);hs=await read("get_lineage",[happy]);check(hs.epoch===2&&hs.active_implementation.toLowerCase()===fixture.safeNew.toLowerCase(),"activation advances exact address and epoch",hs);

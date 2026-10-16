@@ -1,7 +1,7 @@
 {
-  "scope": "LOCAL pure-function tests and GenVM SDK lint/schema; not live consensus",
-  "checked_at": "2026-10-14T02:36:49.466388+00:00",
-  "source_sha256": "f3dbb9c1dbe04545caf1d9e320234890cd3dd2d61668787daf8001a9c68dffa2",
+  "scope": "LOCAL pure-function and public-entrypoint authorization regressions plus GenVM SDK lint/schema; not live consensus",
+  "checked_at": "2026-10-16T03:15:43.098444+00:00",
+  "source_sha256": "72f59362be79bca6330ba20d39d903605c7a18ec3203e3fc77a0fe0b92240b7b",
   "commands": [
     {
       "command": [
@@ -39,6 +39,14 @@
         "contracts/state_loom.py",
         "-o",
         "docs/schema.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "tests/rpc-read-retries.test.mjs"
       ],
       "exit_code": 0
     }

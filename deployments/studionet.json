@@ -1,22 +1,25 @@
 {
   "network": "GenLayer StudioNet 61999",
-  "address": "0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd",
-  "versionReadback": "stateloom/1.2.0",
-  "run": "942217300",
-  "transactions": 35,
-  "assertions": 52,
+  "address": "0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9",
+  "versionReadback": "stateloom/1.2.1",
+  "run": "20261016-primary",
+  "transactions": 37,
+  "finalized": 37,
+  "assertions": 58,
+  "assertionExecutions": 66,
   "evidence": [
-    "docs/live-evidence/studionet-942217300.json",
-    "docs/live-evidence/studionet-adversarial-942217400.json"
+    "docs/live-evidence/studionet-20261016-primary.json",
+    "docs/live-evidence/studionet-adversarial-20261016-adversarial.json"
   ],
-  "deploymentTransaction": "0xe2ebb61dc7b83ce00dbb549108607e896f2c321654db732c1ea376993218868f",
+  "deploymentTransaction": "0x01b6a586ec882c199f4e11be39977eafaae06a6bb37dab6d071ebf4719be1b9d",
   "sourceParity": {
     "verified": true,
     "evidence": "docs/SOURCE_PARITY.json",
-    "sha256": "f3dbb9c1dbe04545caf1d9e320234890cd3dd2d61668787daf8001a9c68dffa2"
+    "sha256": "72f59362be79bca6330ba20d39d903605c7a18ec3203e3fc77a0fe0b92240b7b"
   },
   "superseded": [
     "0xCf8A601f3322c82594011ACA23185FD7F59ccB68",
-    "0x10928c59f8f693F685aB936440ce54c8167E048D"
+    "0x10928c59f8f693F685aB936440ce54c8167E048D",
+    "0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd"
   ]
 }

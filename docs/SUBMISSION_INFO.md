@@ -17,7 +17,7 @@ StateLoom is a GenLayer dApp for maintaining an on-chain lineage of deployed EVM
 
 ## Exact reviewer path
 
-1. Open the website, connect a wallet to GenLayer StudioNet (`61999`), and keep the displayed contract set to `0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd`.
+1. Open the website, connect a wallet to GenLayer StudioNet (`61999`), and keep the displayed contract set to `0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9`.
 2. Wallet A creates a lineage with Wallet B as guardian and source chain `11155111`.
 3. Wallet A proposes baseline `0x5508c89BE3Fe14Fa6d1770aa5690681E99185346` with digest `3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c`; Wallet B syncs and accepts the displayed consent digest.
 4. Either participant opens candidate `0x0B3D92b913630649aD98EBC1A011E40f77d9B653`, then assesses it with old digest `3af2d10d67f4767c7f1d7f509dba7c5a7b55bfba45f2294eda180e951331242c` and new digest `eee601513cb8f3fd379acdddcf89ca05b67d28564abe2ee77b14bd49752509a3`.
@@ -31,21 +31,29 @@ The reviewer should see every success message only after `FINALIZED` execution a
 
 - Website: https://stateloom.vercel.app
 - GitHub: https://github.com/eaglebooth/StateLoom
-- Contract: https://explorer-studio.genlayer.com/address/0x03BD4d9d234bEd1D9b07561a160EFd921ED35Ddd
-- Deployment transaction: https://explorer-studio.genlayer.com/tx/0xe2ebb61dc7b83ce00dbb549108607e896f2c321654db732c1ea376993218868f
+- Contract: https://explorer-studio.genlayer.com/address/0x636e8A70a9aB4E4079D12E992c26e7EE8C613fe9
+- Deployment transaction: https://explorer-studio.genlayer.com/tx/0x01b6a586ec882c199f4e11be39977eafaae06a6bb37dab6d071ebf4719be1b9d
 - Human-readable evidence: `docs/LIVE_STUDIONET_EVIDENCE.md`
-- Primary machine report: `docs/live-evidence/studionet-942217300.json`
-- Adversarial machine report: `docs/live-evidence/studionet-adversarial-942217400.json`
+- Primary machine report: `docs/live-evidence/studionet-20261016-primary.json`
+- Adversarial machine report: `docs/live-evidence/studionet-adversarial-20261016-adversarial.json`
 - Source parity: `docs/SOURCE_PARITY.json`
 
 ## Evidence summary
 
-- Exact deployment: `stateloom/1.2.0`, deployment `FINALIZED`, constructor `SUCCESS`, consensus `Accepted`.
+- Exact deployment: `stateloom/1.2.1`, deployment `FINALIZED`, constructor `SUCCESS`.
 - Two non-deployer actors: owner `0xeb57bc7125fa60d7482CE12058397369AB3581f8`; guardian `0x2da5393d7BBb9A037dc3abB56DbbC5C150fc843f`.
-- `35/35` behavioral transactions finalized.
-- `52/52` live assertions passed; `0` failed.
-- Deployed source equals repository contract byte-for-byte: `22225` bytes, SHA-256 `f3dbb9c1dbe04545caf1d9e320234890cd3dd2d61668787daf8001a9c68dffa2`.
-- Local verification: `9/9` pytest, GenVM lint/schema, ESLint, TypeScript and Next.js production build pass.
+- Current run: 37 submitted, 37 FINALIZED, 58 distinct assertions passed, zero failed. All 37 receipts independently verified; see `deployments/studionet.json` and the `.receipts.json` reports.
+- Deployed source equals repository contract byte-for-byte: `22395` bytes, SHA-256 `72f59362be79bca6330ba20d39d903605c7a18ec3203e3fc77a0fe0b92240b7b`.
+- Local verification: `11/11` pytest, `2/2` RPC retry tests, GenVM lint/schema, ESLint, TypeScript and Next.js production build pass.
+
+## Steward correction
+
+`assess_study` now restricts callers to the lineage owner/guardian before running
+consensus or storing findings. The repository regression proves that an outsider's
+attempt leaves the study open and a later assessment by either participant remains
+possible. The current live rerun includes both wrong-digest and correct-digest
+outsider transactions followed by guardian assessment of the same study.
+See `docs/STEWARD_ASSESSMENT_AUTHORIZATION_FIX.md` for the correction and reply text.
 
 ## Honest scope
 

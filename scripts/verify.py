@@ -14,6 +14,7 @@ commands=[
  [sys.executable,"-m","pytest","-q","--tb=short","-p","no:cacheprovider","--junitxml=docs/local-evidence/pytest.xml"],
  [sys.executable,"-X","utf8","-m","genvm_linter.cli","check","contracts/state_loom.py"],
  [sys.executable,"-X","utf8","-m","genvm_linter.cli","schema","contracts/state_loom.py","-o","docs/schema.json"],
+ ["node","--test","tests/rpc-read-retries.test.mjs"],
 ]
 results=[]
 for i,cmd in enumerate(commands):
@@ -22,7 +23,7 @@ for i,cmd in enumerate(commands):
     (OUT/f"command-{i+1}.txt").write_text(log,encoding="utf-8")
     print(log)
     results.append({"command":cmd,"exit_code":run.returncode})
-report={"scope":"LOCAL pure-function tests and GenVM SDK lint/schema; not live consensus",
+report={"scope":"LOCAL pure-function and public-entrypoint authorization regressions plus GenVM SDK lint/schema; not live consensus",
         "checked_at":datetime.now(timezone.utc).isoformat(),
         "source_sha256":hashlib.sha256((ROOT/"contracts"/"state_loom.py").read_bytes()).hexdigest(),
         "commands":results,"live_address":None,"live_transactions":[]}
